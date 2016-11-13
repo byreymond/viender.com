@@ -14,6 +14,8 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('upvote-button', require('./components/commons/buttons/UpvoteButton.vue'));
+Vue.component('answer-list', require('./components/answers/AnswerList.vue'));
 
 const app = new Vue({
     el: '#app'

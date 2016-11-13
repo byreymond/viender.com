@@ -11,6 +11,15 @@ window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
 
 /**
+ * App
+ */
+window.axios = require('axios');
+window.axios.defaults.baseURL = 'http://api.viender.dev/v1';
+
+function requireAll(r) { r.keys().forEach(r); }
+requireAll(require.context('./mixins', true, /\.js$/));
+
+/**
  * Vue is a modern JavaScript library for building interactive web interfaces
  * using reactive data binding and reusable components. Vue's API is clean
  * and simple, leaving you to focus on building your next great project.
