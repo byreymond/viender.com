@@ -6,7 +6,11 @@
                     <div class="panel-heading">Example Component</div>
 
                     <div class="panel-body">
-                        I'm an example component!
+                        <ul class="list-group">
+                            <li class="list-group-item" v-for="user in users.data">
+                                {{ user.name }}
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -20,11 +24,11 @@
             return {
                 users: {}
             }
-        }
+        },
         created() {
-            $.getJSON('http://api.viender.dev' + newNoSppc, function(data) {
-                alert(data);
-            }->bind(this));
+            $.getJSON('http://api.viender.dev/users', function(data) {
+                this.users = data;
+            }.bind(this));
         }
     }
 </script>
