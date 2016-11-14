@@ -1,6 +1,16 @@
 <template  id="AnswerList-template">
-    <div>
-        <upvote-button url="/users" @requestSent="dump(response)"></upvote-button>
+    <div class="container">
+        <div class="row panel" v-for="answer in answers.data">
+            <div class="row panel-heading">
+                {{ answer.owner.name }}
+            </div>
+            <div class="row panel-body">
+                
+            </div>
+            <div class="row panel-footer">
+                
+            </div>
+        </div>
     </div>
 </template>
 
@@ -8,11 +18,31 @@
     export default {
         template: "#AnswerList-template",
 
-        mixins: [ajaxableMixin],
+        data() {
+            return {
+                answers: {},
+                pathParams: {
+                    params: {
+                        with: "owner",
+                        page: 1
+                    }
+                }
+            }
+        },
+
+        created() {
+            this.getData();
+        },
 
         methods: {
-            dump(response) {
-                console.log(response)
+            getData() {
+                axios.get('/answers', this.pathParams)
+                    .then(function (response) {
+                        this.answers = response.data;
+                    }.bind(this))
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             }
         }
     }
