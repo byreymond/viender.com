@@ -5,5 +5,13 @@
 // Variables
 @import "variables";
 
+// Components
+@import "components/panel";
+
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
