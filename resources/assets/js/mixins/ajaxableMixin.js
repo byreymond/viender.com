@@ -30,15 +30,15 @@ window.ajaxableMixin = {
     methods: {
         sendRequest() {
             if(this.method == "GET") {
-                this.sendGetRequest();
+                this.sendGetRequest(this.url, this.params);
             } else {
-                this.sendPostRequest();
+                this.sendPostRequest(this.url, this.data);
             }
         },
 
-        sendGetRequest() {
-            axios.get(this.url, {
-                    params: this.params
+        sendGetRequest(url, pathParams = {}) {
+            axios.get(url, {
+                    params: pathParams
                 })
                 .then(function (response) {
                     console.log(response.data);
@@ -48,10 +48,10 @@ window.ajaxableMixin = {
                 });
         },
 
-        sendPostRequest() {
+        sendPostRequest(url, data = {}) {
             // this.data['_method'] = this.method;
 
-            axios.post(this.url, this.data)
+            axios.post(url, data)
                 .then(function (response) {
                     console.log(response.data);
                 })
