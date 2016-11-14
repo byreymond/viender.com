@@ -15,7 +15,7 @@
     </head>
     <body>
         <div id="app" class="flex-center position-ref full-height">
-            <example></example>
+            <answer-list></answer-list>
         </div>
         <script src="{{ elixir('js/app.js') }}"></script>
     </body>

@@ -14,7 +14,7 @@ require('bootstrap-sass');
  * App
  */
 window.axios = require('axios');
-window.axios.defaults.baseURL = 'http://api.viender.dev/v1';
+window.axios.defaults.baseURL = 'http://api.viender.com/v1';
 
 function requireAll(r) { r.keys().forEach(r); }
 requireAll(require.context('./mixins', true, /\.js$/));
