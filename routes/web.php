@@ -14,3 +14,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+
+Route::get('/tutor', 'PagesController@tutor');
+Route::get('/read', 'PagesController@read');
+Route::get('/answer', 'PagesController@answer');

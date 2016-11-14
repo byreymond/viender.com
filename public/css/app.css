@@ -1,5 +1,8 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+.panel {
+  width: 100%; }
+
 .panel-heading {
   width: 100%; }
 
