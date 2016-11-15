@@ -12,11 +12,19 @@ require('laravel-elixir-vue-2');
  | file for your application as well as publishing vendor resources.
  |
  */
+var paths = {
+    'compiled': 'public/assets/',
+    'mdbootstrap': 'node_modules/mdbootstrap/'
+}
 
 elixir((mix) => {
     mix.sass('app.scss')
        .webpack('app.js')
+       .scripts([
+            paths.compiled + 'js/app.js',
+            paths.mdbootstrap + 'js/mdb.js'
+        ], 'public/js/app.js', '.')
        .version(['public/css/app.css', 'public/js/app.js'])
-       .copy('node_modules/mdbootstrap/font', 'public/font')
-       .copy('node_modules/mdbootstrap/img', 'public/img');
+       .copy(paths.mdbootstrap + 'font', 'public/font')
+       .copy(paths.mdbootstrap + 'img', 'public/img');
 });
