@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags always come first -->
+    <!-- Requiblue meta tags always come first -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -21,19 +21,20 @@
     <div id="root">
         <header>
             <!--Navbar-->
-                @include('layouts.nav')
+            @include('layouts.navigation.navigation')
             <!--/.Navbar-->
         </header>
 
         <main id="app">
-            
+            @yield('content')
+            @yield('sidebar')
         </main>
 
         <footer>
-            
+            @yield('footer')
         </footer>
     </div>
-    
+
     <!-- SCRIPTS -->
     <script type="text/javascript" src={{ elixir("js/app.js") }}></script>
 

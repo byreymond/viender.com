@@ -8,10 +8,8 @@ window._ = require('lodash');
  */
 
 window.$ = window.jQuery = require('mdbootstrap/js/jquery-3.1.1.js');
-// window.$ = window.jQuery = require('./vendor/jquery-2.2.1.min.js');
 window.Tether = require('mdbootstrap/js/tether.js');
 require('mdbootstrap/js/bootstrap.js');
-// require('./vendor/bootstrap.min.js');
 
 /**
  * App

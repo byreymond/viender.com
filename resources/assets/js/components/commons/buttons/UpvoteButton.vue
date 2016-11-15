@@ -1,5 +1,5 @@
 <template  id="UpvoteButton-template">
-    <button @click="sendRequest">
+    <button type="button" class="btn btn-outline-primary waves-effect">
         <slot name="text">
             Upvote
         </slot>
@@ -9,7 +9,5 @@
 <script>
     export default {
         template: "#UpvoteButton-template",
-
-        mixins: [ajaxableMixin]
     }
 </script>

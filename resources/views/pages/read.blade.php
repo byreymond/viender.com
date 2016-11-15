@@ -1,163 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
-
-<!--Main column-->
-<div class="col-md-8">
-
-    <!--Post-->
-    <div class="post-wrapper">
-        <!--Post data-->
-        <h1 class="h1-responsive">Post title <small class="text-muted">Secondary text</small></h1>
-        <h5>Written by <a href="">John Doe</a>, 30.04.2016</h5>
-
-        <br>
-
-        <!--Featured image -->
-        <div class="view overlay hm-white-light z-depth-1-half">
-            <img src="http://mdbootstrap.com/images/slides/slide%20(11).jpg" class="img-fluid " alt="">
-            <div class="mask">
-            </div>
-        </div>
-
-        <br>
-
-        <!--Post excerpt-->
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, officia omnis. Vero nihil neque dignissimos hic voluptas quisquam amet porro, similique libero ullam veritatis tempora cumque voluptates harum. Repellendus, impedit.</p>
-
-        <!--"Read more" button-->
-        <button class="btn btn-primary">Read more</button>
-    </div>
-    <!--/.Post-->
-
-    <hr>
-
-    <!--Post-->
-    <div class="post-wrapper">
-        <!--Post data-->
-        <h1 class="h1-responsive">Post title <small class="text-muted">Secondary text</small></h1>
-        <h5>Written by <a href="">John Doe</a>, 30.04.2016</h5>
-
-        <br>
-
-        <!--Featured image -->
-        <div class="view overlay hm-white-light z-depth-1-half">
-            <img src="http://mdbootstrap.com/images/slides/slide%20(12).jpg" class="img-fluid " alt="">
-            <div class="mask">
-            </div>
-        </div>
-
-        <br>
-
-        <!--Post excerpt-->
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, officia omnis. Vero nihil neque dignissimos hic voluptas quisquam amet porro, similique libero ullam veritatis tempora cumque voluptates harum. Repellendus, impedit.</p>
-
-        <!--"Read more" button-->
-        <button class="btn btn-primary">Read more</button>
-    </div>
-    <!--/.Post-->
-
-    <hr>
-
-    <!--Post-->
-    <div class="post-wrapper">
-        <!--Post data-->
-        <h1 class="h1-responsive">Post title <small class="text-muted">Secondary text</small></h1>
-        <h5>Written by <a href="">John Doe</a>, 30.04.2016</h5>
-
-        <br>
-
-        <!--Featured image -->
-        <div class="view overlay hm-white-light z-depth-1-half">
-            <img src="http://mdbootstrap.com/images/slides/slide%20(24).jpg" class="img-fluid" alt="">
-            <div class="mask">
-            </div>
-        </div>
-
-        <br>
-
-        <!--Post excerpt-->
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, officia omnis. Vero nihil neque dignissimos hic voluptas quisquam amet porro, similique libero ullam veritatis tempora cumque voluptates harum. Repellendus, impedit.</p>
-
-        <!--"Read more" button-->
-        <button class="btn btn-primary">Read more</button>
-    </div>
-    <!--/.Post-->
-
-    <hr>
-
-    <!--Pagination-->
-    <nav class="text-xs-center">
-        <ul class="pagination">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </li>
-            <li class="page-item active">
-                <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <!--/.Pagination-->
-
-    <hr>
-
-</div>
-
-<!--Sidebar-->
-<div class="col-md-4">
-
-    <div class="widget-wrapper">
-        <h4>Categories:</h4>
-        <br>
-        <div class="list-group">
-            <a href="#" class="list-group-item active">Sport</a>
-            <a href="#" class="list-group-item">Music</a>
-            <a href="#" class="list-group-item">Travels</a>
-            <a href="#" class="list-group-item">Fashion</a>
-            <a href="#" class="list-group-item">Parties</a>
-        </div>
-    </div>
+    <answer-list></answer-list>
+    <upvote-button></upvote-button>
+<button type="button" class="btn btn-outline-primary waves-effect">Primary</button>
+<button type="button" class="btn btn-outline-default waves-effect">Default</button>
+<button type="button" class="btn btn-outline-secondary waves-effect">Secondary</button>
+<button type="button" class="btn btn-outline-success waves-effect">Success</button>
+<button type="button" class="btn btn-outline-info waves-effect">Info</button>
+<button type="button" class="btn btn-outline-warning waves-effect">Warning</button>
+<button type="button" class="btn btn-outline-danger waves-effect">Danger</button>
 
 
+<a class="btn btn-primary btn-rounded">Primary</a>
+<a class="btn btn-default btn-rounded">Default</a>
+<a class="btn btn-secondary btn-rounded">Secondary</a>
+<a class="btn btn-success btn-rounded">Success</a>
+<a class="btn btn-info btn-rounded">Info</a>
+<a class="btn btn-warning btn-rounded">Warning</a>
+<a class="btn btn-danger btn-rounded">Danger</a>
 
-    <div class="widget-wrapper">
-        <h4>Subscription form:</h4>
-        <br>
-        <div class="card">
-            <div class="card-block">
-                <p><strong>Subscribe to our newsletter</strong></p>
-                <p>Once a week we will send you a summary of the most useful news</p>
-                <div class="md-form">
-                    <i class="fa fa-user prefix"></i>
-                    <input type="text" id="form1" class="form-control">
-                    <label for="form1">Your name</label>
-                </div>
-                <div class="md-form">
-                    <i class="fa fa-envelope prefix"></i>
-                    <input type="text" id="form2" class="form-control">
-                    <label for="form2">Your email</label>
-                </div>
-                <button class="btn btn-primary">Submit</button>
+<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+<button type="button" class="btn btn-primary">Primary</button>
 
-            </div>
-        </div>
-    </div>
+<!-- Indicates a dangerous or potentially negative action -->
+<button type="button" class="btn btn-default">Default</button>
 
-</div>
-<!--/.Sidebar-->
-</div>
+<!-- Secondary, outline button -->
+<button type="button" class="btn btn-secondary">Secondary</button>
+
+<!-- Indicates a successful or positive action -->
+<button type="button" class="btn btn-success">Success</button>
+
+<!-- Contextual button for informational alert messages -->
+<button type="button" class="btn btn-info">Info</button>
+
+<!-- Indicates caution should be taken with this action -->
+<button type="button" class="btn btn-warning">Warning</button>
+
+<!-- Indicates a dangerous or potentially negative action -->
+<button type="button" class="btn btn-danger">Danger</button>
 @endsection
