@@ -1,0 +1,31 @@
+.navbar-mobile .side-nav li a.nav-link {
+    color: #373a3c;
+}
+
+.side-nav li.active, .side-nav li:hover {
+    background-color: #ddd;
+}
+
+.navbar-mobile .side-nav {
+    color: #373a3c;
+}
+
+@media screen and (min-width: 992px) {
+  #mobile-menu-head {
+    visibility: hidden;
+    clear: both;
+    float: left;
+    margin: 10px auto 5px 20px;
+    width: 28%;
+    display: none;
+  }
+
+  #mobile-menu-button {
+    visibility: hidden;
+    clear: both;
+    float: left;
+    margin: 10px auto 5px 20px;
+    width: 28%;
+    display: none;
+  }
+}

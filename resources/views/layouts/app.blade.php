@@ -26,8 +26,17 @@
         </header>
 
         <main id="app">
-            @yield('content')
-            @yield('sidebar')
+            <div class="sidebar-left col-md-3">
+                @yield('sidebar-left')
+            </div>
+
+            <div class="sidebar-left col-md-6" style="max-width: 572px; margin: 0 auto;">
+                @yield('content')
+            </div>
+            
+            <div class="sidebar-left col-md-3">
+                @yield('sidebar-right')
+            </div>
         </main>
 
         <footer>

@@ -5,12 +5,15 @@
 // Variables
 // @import "variables";
 
-// Components
-@import "components/navigation/navigation";
-
 // Material Design Bootstrap
 @import "css/bootstrap2.min";
 @import "css/mdb2.min";
+
+// Components
+@import "components/navigation/navigation";
+@import "components/navigation/navigation-desktop";
+@import "components/navigation/navigation-mobile";
+
 
 .row {
     margin-left: 0px;
