@@ -7,8 +7,8 @@ window._ = require('lodash');
  * code may be modified to fit the specific needs of your application.
  */
 
-// window.$ = window.jQuery = require('mdbootstrap/js/jquery-3.1.1.js');
-window.$ = window.jQuery = require('./vendor/jquery-2.2.1.min.js');
+window.$ = window.jQuery = require('mdbootstrap/js/jquery-3.1.1.js');
+// window.$ = window.jQuery = require('./vendor/jquery-2.2.1.min.js');
 window.Tether = require('mdbootstrap/js/tether.js');
 require('mdbootstrap/js/bootstrap.js');
 // require('./vendor/bootstrap.min.js');
