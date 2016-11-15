@@ -21,10 +21,10 @@ elixir((mix) => {
     mix.sass('app.scss')
        .webpack('app.js')
        .scripts([
-            paths.compiled + 'js/app.js',
-            paths.mdbootstrap + 'js/mdb.js'
+            'public/js/app.js',
+            'resources/assets/js/vendor/mdb.js'
         ], 'public/js/app.js', '.')
        .version(['public/css/app.css', 'public/js/app.js'])
-       .copy(paths.mdbootstrap + 'font', 'public/font')
+       .copy(paths.mdbootstrap + 'font', 'public/build/font')
        .copy(paths.mdbootstrap + 'img', 'public/img');
 });

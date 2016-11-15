@@ -10,8 +10,10 @@
 
 // Material Design Bootstrap
 @import "node_modules/mdbootstrap/css/bootstrap";
-@import "node_modules/mdbootstrap/css/mdb";
-@import "node_modules/mdbootstrap/css/style";
+// @import "node_modules/mdbootstrap/css/mdb";
+// @import "node_modules/mdbootstrap/css/style";
+// @import "css/bootstrap.min";
+@import "css/mdb.min";
 
 .row {
     margin-left: 0px;
