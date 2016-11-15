@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "axios": "^0.15.2",
-    "mdbootstrap": "^4.2.0"
+    "mdbootstrap": "^4.2.0",
+    "waves": "^0.1.1"
   }
 }
