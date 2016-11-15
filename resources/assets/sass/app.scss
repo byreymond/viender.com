@@ -8,8 +8,10 @@
 // Components
 @import "components/panel";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// Material Design Bootstrap
+@import "node_modules/mdbootstrap/css/bootstrap";
+@import "node_modules/mdbootstrap/css/mdb";
+@import "node_modules/mdbootstrap/css/style";
 
 .row {
     margin-left: 0px;
