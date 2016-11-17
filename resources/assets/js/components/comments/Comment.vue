@@ -1,35 +1,29 @@
-<template id="answer-template">
+<template id="Comment-template">
 
 <div class="card card-block">
     <div class="card-block-header row">
-        <!-- Answer's Question -->
-        <div class="title row">
-            <h4 class="card-title">{{ answer.question.title }}</h4>
-        </div>
-
         <div class="user-info row">
             <!-- Avatar -->
             <div class="avatar col-sm-2">
                 <img src="/img/profile.jpg" alt="" class="img-fluid rounded-circle z-depth-2">
             </div>
             
-            <!-- Answerer Bio -->
+            <!-- Co Bio -->
             <div class="author-bio col-sm-10">
-                <p class="card-text"><strong>{{ answer.owner.name }}</strong>, Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p class="card-text"><strong>{{ comment.owner.name }}</strong></p>
             </div>
         </div>
     </div>
 
     <div class="card-block-body">
-        <p class="card-text">{{ answer.body }}</p>
+        <p class="card-text">{{ comment.body }}</p>
     </div>
 
     <div class="card-block-footer">
-        <a class="btn btn-info waves-effect waves-light">Upvote | {{ answer.upvote_count }}</a>
+        <a class="card-link">Upvote | {{ comment.upvote_count }}</a>
         <a class="card-link">Downvote</a>
-        <a class="card-link" v-on:click="fetchComments(answer)">Comments | {{ answer.comment_count }}</a>
+        <a class="card-link" v-on:click="fetchComments(comment)">Comments | {{ comment.comment_count }}</a>
         <a class="card-link" style="float: right;">...</a>
-        <a>{{ ayam }}</a>
     </div>
 
     <comment-list :comments="comments"></comment-list>
@@ -41,14 +35,16 @@
 
 <script>
     export default {
-        template: "#answer-template",
+        template: "#Comment-template",
 
         mixins: [hasCommentsMixin],
 
-        props: ['answer'],
+        props: ['comment'],
 
         data() {
             return {
+                comments: {},
+                
                 commentsPathParams: {
                     params: {
                         with: "owner",

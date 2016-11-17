@@ -1,15 +1,7 @@
 <template  id="AnswerList-template">
-    <div class="container">
-        <div class="row panel" v-for="answer in answers.data">
-            <div class="row panel-heading">
-                {{ answer.owner.name }}
-            </div>
-            <div class="row panel-body">
-                
-            </div>
-            <div class="row panel-footer">
-                
-            </div>
+    <div>
+        <div  class="answer-box" v-for="answer in answers.data">
+            <answer :answer="answer"></answer>
         </div>
     </div>
 </template>
@@ -21,12 +13,6 @@
         data() {
             return {
                 answers: {},
-                pathParams: {
-                    params: {
-                        with: "owner",
-                        page: 1
-                    }
-                }
             }
         },
 
@@ -36,14 +22,21 @@
 
         methods: {
             getData() {
-                axios.get('/answers', this.pathParams)
+                var pathParams = {
+                    params: {
+                        with: "owner,question",
+                        page: 1
+                    }
+                };
+
+                axios.get('/answers', pathParams)
                     .then(function (response) {
                         this.answers = response.data;
                     }.bind(this))
                     .catch(function (error) {
                         console.log(error);
                     });
-            }
+            },        
         }
     }
 </script>

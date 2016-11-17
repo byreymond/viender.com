@@ -13,9 +13,12 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('viender-read', require('./components/VienderRead.vue'));
 Vue.component('upvote-button', require('./components/commons/buttons/UpvoteButton.vue'));
+Vue.component('answer', require('./components/answers/Answer.vue'));
 Vue.component('answer-list', require('./components/answers/AnswerList.vue'));
+Vue.component('comment', require('./components/comments/Comment.vue'));
+Vue.component('comment-list', require('./components/comments/CommentList.vue'));
 
 const app = new Vue({
     el: '#app'
