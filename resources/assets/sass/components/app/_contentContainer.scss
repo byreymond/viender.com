@@ -1,0 +1,25 @@
+div.content-container {
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0 auto;
+}
+
+/**
+ * Display on tablet screen
+ */
+@media screen and (min-width: 768px) {
+    div.content-container {
+        margin: auto;
+        width: 100%;
+    }
+}
+
+/**
+ * Display on PC screen
+ */
+@media screen and (min-width: 992px) {
+    div.content-container {
+        max-width: 572px;
+    }
+}

@@ -1,0 +1,31 @@
+.card-block-header {
+    padding-bottom: 20px;
+}
+
+.card-block-header .avatar {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.card-block-header .author-bio {
+    padding-left: 50px;
+}
+
+.card-block-header .avatar img {
+    width: 64px;
+}
+
+@media screen and (min-width: 0px) {
+    .card-block-header .avatar img {
+        width: 36px;
+    }
+}
+
+/**
+ * Display on tablet screen
+ */
+@media screen and (min-width: 768px) {
+    .card-block-header .author-bio {
+        padding-left: 10px;
+    }
+}

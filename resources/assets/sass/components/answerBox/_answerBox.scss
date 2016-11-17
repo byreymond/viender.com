@@ -1,0 +1,20 @@
+div.answer-box {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.answer-box .card-block {
+    padding: 0.75rem;
+}
+
+.answer-box .card img {
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+@media screen and (min-width: 0px) {
+    .answer-box .col-sm-2 {
+        float: left;
+        width: 36px;
+    }
+}
