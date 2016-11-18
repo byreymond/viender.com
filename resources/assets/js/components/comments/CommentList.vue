@@ -1,6 +1,6 @@
 <template  id="CommentList-template">
-    <div>
-        <div  class="answer-box" v-for="comment in comments.data">
+    <div class="comment-container">
+        <div  class="comment-box" v-for="comment in comments.data">
             <comment :comment="comment"></comment>
         </div>
     </div>

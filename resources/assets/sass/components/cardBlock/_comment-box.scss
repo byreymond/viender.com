@@ -1,0 +1,43 @@
+.comment-container {
+    background-color: #f7f7f7;
+}
+
+div.comment-box {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.comment-box .card-block {
+    padding: 0.75rem;
+    box-shadow: none;
+    background-color: #f7f7f7;
+}
+
+.comment-box .card-block .card-block-header {
+    padding-bottom: 0px;
+}
+
+.comment-box .card img {
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.comment-box .card-block-body {
+    padding-left: 41px;
+}
+
+.comment-box .card-block-footer {
+    padding-left: 41px;
+    padding-bottom: 20px;
+}
+
+.comment-container .comment-container {
+    padding-left: 29px;
+}
+
+@media screen and (min-width: 0px) {
+    .comment-box .col-sm-2 {
+        float: left;
+        width: 36px;
+    }
+}

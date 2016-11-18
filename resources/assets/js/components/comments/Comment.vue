@@ -10,7 +10,7 @@
             
             <!-- Co Bio -->
             <div class="author-bio col-sm-10">
-                <p class="card-text"><strong>{{ comment.owner.name }}</strong></p>
+                <p class=""><strong>{{ comment.owner.name }}</strong></p>
             </div>
         </div>
     </div>
@@ -22,11 +22,11 @@
     <div class="card-block-footer">
         <a class="card-link">Upvote | {{ comment.upvote_count }}</a>
         <a class="card-link">Downvote</a>
-        <a class="card-link" v-on:click="fetchComments(comment)">Comments | {{ comment.comment_count }}</a>
+        <a class="card-link comment" v-on:click="fetchComments(comment)">Comments | {{ comment.comment_count }}</a>
         <a class="card-link" style="float: right;">...</a>
     </div>
 
-    <comment-list :comments="comments"></comment-list>
+    <comment-list :comments="comments" v-if="show"></comment-list>
 
 </div>
 
