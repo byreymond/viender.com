@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-primary">
+<nav class="navbar navbar-fixed-top navbar-dark bg-primary">
     <div class="row">    
        
     </div>
