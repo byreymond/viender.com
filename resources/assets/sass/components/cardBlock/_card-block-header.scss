@@ -1,5 +1,5 @@
 .card-block-header {
-    padding-bottom: 20px;
+    padding-bottom: 0px;
 }
 
 .card-block-header .avatar {
@@ -8,17 +8,11 @@
 }
 
 .card-block-header .author-bio {
-    padding-left: 50px;
+    padding-left: 40px;
 }
 
 .card-block-header .avatar img {
-    width: 64px;
-}
-
-@media screen and (min-width: 0px) {
-    .card-block-header .avatar img {
-        width: 36px;
-    }
+    width: 25px;
 }
 
 /**
@@ -27,5 +21,18 @@
 @media screen and (min-width: 768px) {
     .card-block-header .author-bio {
         padding-left: 10px;
+    }
+}
+
+/**
+ * Display on PC screen
+ */
+@media screen and (min-width: 992px) {
+    .card-block-header .avatar img {
+        width: 50px;
+    }
+
+    .card-block-header .author-bio {
+        padding-left: 15px;
     }
 }
