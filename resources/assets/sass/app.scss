@@ -1,9 +1,37 @@
 
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+// @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
 // Variables
-@import "variables";
+// @import "variables";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// Material Design Bootstrap
+@import "css/bootstrap2.min";
+@import "css/mdb2.min";
+
+// Components
+// Buttons
+@import "components/buttons/btn-upvote";
+
+// Navigation
+@import "components/navigation/navigation";
+@import "components/navigation/navigation-desktop";
+@import "components/navigation/navigation-mobile";
+
+// Card Box
+@import "components/cardBlock/card-block-header";
+@import "components/cardBlock/card-block-body";
+@import "components/cardBlock/card-block-footer";
+@import "components/cardBlock/card-block";
+@import "components/cardBlock/answer-box";
+@import "components/cardBlock/comment-box";
+@import "components/cardBlock/comment-comment-box";
+
+// App
+@import "components/app/contentContainer";
+@import "components/app/sidebar-left";
+@import "components/app/sidebar-right";
+
+header {
+    margin-bottom: 50px;
+}

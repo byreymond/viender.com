@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/', 'PagesController@read');
+
+Route::get('/tutor', 'PagesController@tutor');
+Route::get('/read', 'PagesController@read');
+Route::get('/answer', 'PagesController@answer');

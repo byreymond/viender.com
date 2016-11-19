@@ -1,0 +1,38 @@
+.card-block-header {
+    padding-bottom: 0px;
+}
+
+.card-block-header .avatar {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.card-block-header .author-bio {
+    padding-left: 40px;
+}
+
+.card-block-header .avatar img {
+    width: 25px;
+}
+
+/**
+ * Display on tablet screen
+ */
+@media screen and (min-width: 768px) {
+    .card-block-header .author-bio {
+        padding-left: 10px;
+    }
+}
+
+/**
+ * Display on PC screen
+ */
+@media screen and (min-width: 992px) {
+    .card-block-header .avatar img {
+        width: 50px;
+    }
+
+    .card-block-header .author-bio {
+        padding-left: 15px;
+    }
+}
