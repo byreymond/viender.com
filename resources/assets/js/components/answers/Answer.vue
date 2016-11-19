@@ -27,7 +27,7 @@
         </div>
 
         <div class="card-block-footer">
-            <a class="btn btn-upvote waves-effect waves-light">Upvote | <strong> {{ answer.upvote_count }} </strong></a>
+            <a class="btn btn-upvote waves-effect waves-light" @click="upvote(answer)">Upvote | <strong> {{ answer.upvote_count }} </strong></a>
             <a class="card-link">Downvote</a>
             <a class="card-link" v-on:click="fetchComments(answer)">Comments | {{ answer.comment_count }}</a>
             <a class="card-link" style="float: right;">...</a>
@@ -46,7 +46,7 @@
     export default {
         template: "#answer-template",
 
-        mixins: [hasCommentsMixin],
+        mixins: [hasCommentsMixin, upvotableMixin],
 
         props: ['answer'],
 

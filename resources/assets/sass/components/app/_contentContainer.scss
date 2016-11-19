@@ -10,7 +10,6 @@ div.content-container {
  */
 @media screen and (min-width: 768px) {
     div.content-container {
-        margin-top: 32px;
         margin: auto;
         width: 100%;
     }
@@ -21,7 +20,6 @@ div.content-container {
  */
 @media screen and (min-width: 992px) {
     div.content-container {
-        margin-top: 38px;
         max-width: 572px;
     }
 }

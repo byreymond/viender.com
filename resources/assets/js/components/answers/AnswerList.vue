@@ -1,5 +1,5 @@
 <template  id="AnswerList-template">
-    <div>
+    <div class="content-container">
         <div  class="answer-box" v-for="answer in answers.data">
             <answer :answer="answer"></answer>
         </div>

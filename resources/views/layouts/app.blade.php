@@ -18,39 +18,20 @@
 </head>
 
 <body>
-    <div id="root">
-        <header>
-            <!--Navbar-->
-            @include('layouts.navigation.navigation')
-            <!--/.Navbar-->
-        </header>
-
-        <main id="app">
-            <div class="col-md-3" id="sidebar-left">
-                @yield('sidebar-left')
-            </div>
-
-            <div class="content-container col-md-6">
-                @yield('content')
-            </div>
-            
-            <div class="col-md-3" id="sidebar-right">
-                @yield('sidebar-right')
-            </div>
-        </main>
-
-        <footer>
-            @yield('footer')
-        </footer>
+    <div id="app">
+        @yield('content')
     </div>
 
     <!-- SCRIPTS -->
-    <script type="text/javascript" src={{ elixir("js/app.js") }}></script>
+    <section>
+        <script type="text/javascript" src={{ elixir("js/app.js") }}></script>
+        {{-- <script src='https://www.google.com/recaptcha/api.js'></script> --}}
+        <script>
+            new WOW().init();
 
-    <script>
-        $(".button-collapse").sideNav();
-    </script>
-
+            $(".button-collapse").sideNav();
+        </script>
+    </section>
 </body>
 
 </html>

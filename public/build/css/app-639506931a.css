@@ -17172,6 +17172,9 @@ button.toast-close-button {
   margin-left: 0;
   margin-right: 0; }
 
+.side-nav {
+  width: 270px; }
+
 .navbar-mobile .side-nav li a.nav-link {
   color: #373a3c; }
 
@@ -17313,7 +17316,6 @@ div.content-container {
  */
 @media screen and (min-width: 768px) {
   div.content-container {
-    margin-top: 32px;
     margin: auto;
     width: 100%; } }
 
@@ -17322,7 +17324,6 @@ div.content-container {
  */
 @media screen and (min-width: 992px) {
   div.content-container {
-    margin-top: 38px;
     max-width: 572px; } }
 
 @media screen and (max-width: 992px) {
@@ -17343,8 +17344,7 @@ div.content-container {
     width: 28%;
     display: none; } }
 
-.row {
-  margin-left: 0px;
-  margin-right: 0px; }
+header {
+  margin-bottom: 50px; }
 
 /*# sourceMappingURL=app.css.map */
