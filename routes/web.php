@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'PagesController@read');
 
 Route::get('/tutor', 'PagesController@tutor');
 Route::get('/read', 'PagesController@read');
