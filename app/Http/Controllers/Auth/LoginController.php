@@ -60,10 +60,8 @@ class LoginController extends Controller
 
             $response = json_decode((string) $response->getBody(), true);
 
-            session(['laravel_token' => $response['access_token']]);
-
-            return session('laravel_token');
-
+            session(['laravel_token' => $response]);
+            
         } catch (ClientException $e) {
             $error = [
                 "error" => "An error has occured",
