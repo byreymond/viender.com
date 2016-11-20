@@ -1,5 +1,5 @@
 <template id="home-page-template">
-    <welcome-page v-if="true"></welcome-page>
+    <welcome-page v-if="false"></welcome-page>
     <read-page v-else></read-page>
 </template>
 

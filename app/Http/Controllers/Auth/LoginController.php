@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
+use Laravel\Passport\Passport;
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Exception\ClientException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -44,17 +46,32 @@ class LoginController extends Controller
 
         $http = new \GuzzleHttp\Client;
 
-        $response = $http->post('http://api.viender.com/oauth/token', [
-            'form_params' => [
-                'grant_type' => 'password',
-                'client_id' => '3',
-                'client_secret' => 'uX3pIkN9wwNOBCLVUdOitLCdVnlKR5Wr1ZqR2ALQ',
-                'username' => 'nugraha.c.wahyu@gmail.com',
-                'password' => 'open123',
-                'scope' => '',
-            ],
-        ]);
+        try {
+            $response = $http->post('http://api.viender.com/oauth/token', [
+                'form_params' => [
+                    'grant_type' => 'password',
+                    'client_id' => '3',
+                    'client_secret' => 'uX3pIkN9wwNOBCLVUdOitLCdVnlKR5Wr1ZqR2ALQ',
+                    'username' => $request->email,
+                    'password' => $request->password,
+                    'scope' => '',
+                ],
+            ]);
 
-        return json_decode((string) $response->getBody(), true);
+            $response = json_decode((string) $response->getBody(), true);
+
+            session(['laravel_token' => $response]);
+            
+        } catch (ClientException $e) {
+            $error = [
+                "error" => "An error has occured",
+                "message" => "There was an error, please try again later."
+            ];
+
+            return response($error, 403);
+        }
+        
+
+
     }
 }
