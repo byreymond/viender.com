@@ -49,7 +49,7 @@ class GoogleController extends Controller
 
         try {
             $response = $http->post('https://api.viender.dev/users', [
-                'form_params' => $formParams,
+                'json' => $formParams,
             ]);
 
             return $response = json_decode((string) $response->getBody(), true);
