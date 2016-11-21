@@ -50,8 +50,8 @@ class LoginController extends Controller
             $response = $http->post('http://api.viender.com/oauth/token', [
                 'form_params' => [
                     'grant_type' => 'password',
-                    'client_id' => '3',
-                    'client_secret' => 'uX3pIkN9wwNOBCLVUdOitLCdVnlKR5Wr1ZqR2ALQ',
+                    'client_id' => env('VIENDER_ID'),
+                    'client_secret' => env('VIENDER_SECRET'),
                     'username' => $request->email,
                     'password' => $request->password,
                     'scope' => '',
@@ -65,13 +65,10 @@ class LoginController extends Controller
         } catch (ClientException $e) {
             $error = [
                 "error" => "An error has occured",
-                "message" => "There was an error, please try again later."
+                "message" => "There was an error, please try again."
             ];
 
             return response($error, 403);
         }
-        
-
-
     }
 }
