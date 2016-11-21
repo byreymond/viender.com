@@ -26,6 +26,7 @@ class GoogleController extends Controller
      */
     public function callback()
     {
+
         $user = \Socialite::driver('google')->user();
 
         $formParams = [
@@ -43,6 +44,8 @@ class GoogleController extends Controller
             'token'             => $user->token,
             'expiresIn'         => $user->expiresIn,
         ];
+
+        dd($formParams);
 
         $http = new \GuzzleHttp\Client;
 
