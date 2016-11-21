@@ -48,7 +48,7 @@ class GoogleController extends Controller
         $http = new \GuzzleHttp\Client;
 
         try {
-            $response = $http->post('https://api.viender.dev/users', [
+            $response = $http->post('https://api.viender.com/users', [
                 'json' => $formParams,
             ]);
 
