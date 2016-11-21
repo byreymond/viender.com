@@ -45,8 +45,6 @@ class GoogleController extends Controller
             'expiresIn'         => $user->expiresIn,
         ];
 
-        dd($formParams);
-
         $http = new \GuzzleHttp\Client;
 
         try {
