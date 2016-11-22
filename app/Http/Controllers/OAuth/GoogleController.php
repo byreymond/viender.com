@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Viender\Utilities\Text;
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Exception\ServerException;
 
 class GoogleController extends Controller
 {
@@ -26,12 +27,13 @@ class GoogleController extends Controller
      */
     public function callback()
     {
-
         $user = \Socialite::driver('google')->user();
 
+        $vienderConfig = config('services.viender');
+
         $formParams = [
-            'client_id'         => env('VIENDER_ID'),
-            'client_secret'     => env('VIENDER_SECRET'),
+            'client_id'         => $vienderConfig['client_id'],
+            'client_secret'     => $vienderConfig['client_secret'],
             'first_name'        => $user->user['name']['givenName'],
             'last_name'         => $user->user['name']['familyName'],
             'email'             => $user->email,
@@ -39,17 +41,27 @@ class GoogleController extends Controller
             'avatar_url'        => $user->avatar_original,
             'password'          => substr(encrypt(Carbon::now()), 0, 10),
             'gender'            => '',
+            'is_social_account' => true,
             'social_id'         => $user->id,
             'provider'          => 'google',
             'token'             => $user->token,
             'expiresIn'         => $user->expiresIn,
         ];
 
-        $http = new \GuzzleHttp\Client;
+        $http = new \GuzzleHttp\Client(['base_uri' => env('VIENDER_URL')]);
+
+        if(config('app.env') == 'local') {
+            $http = new \GuzzleHttp\Client(['base_uri' => env('VIENDER_URL'), 'verify' => false]);
+        }
 
         try {
-            $response = $http->post('https://api.viender.com/users', [
-                'json' => $formParams,
+            $response = $http->post('/users', [
+                'headers' => [
+                    'Origin'            => 'https://web.viender.dev',
+                    'Content-Type'      => 'application/json',
+                    'Accept'            => 'application/json'
+                ],
+                'json' => $formParams
             ]);
 
             return $response = json_decode((string) $response->getBody(), true);
@@ -61,6 +73,6 @@ class GoogleController extends Controller
             ];
 
             return response($error, 403);
-        }
+        } 
     }
 }
