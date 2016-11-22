@@ -63,8 +63,11 @@ class GoogleController extends Controller
                 ],
                 'json' => $formParams
             ]);
+            $response = json_decode((string) $response->getBody(), true);
+            
+            session(['viender_access_token' => $response['token']]);
 
-            return $response = json_decode((string) $response->getBody(), true);
+            return response($response);
             
         } catch (ClientException $e) {
             $error = [
