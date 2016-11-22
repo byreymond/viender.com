@@ -43,6 +43,10 @@ Vue.http.interceptors.push((request, next) => {
     next();
 });
 
+var VueCookie = require('vue-cookie');
+// Tell Vue to use the plugin 
+Vue.use(VueCookie);
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
