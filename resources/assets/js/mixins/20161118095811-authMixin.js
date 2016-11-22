@@ -9,6 +9,8 @@ window.authMixin = {
     },
 
     methods: {
-        
+        isAuthenticated() {
+            
+        }
     }
 }
