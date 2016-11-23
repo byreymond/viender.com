@@ -39,36 +39,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
-
-    public function login(Request $request)
-    {
-        $this->validateLogin($request);
-
-        $http = new \GuzzleHttp\Client;
-
-        try {
-            $response = $http->post('http://api.viender.com/oauth/token', [
-                'form_params' => [
-                    'grant_type' => 'password',
-                    'client_id' => env('VIENDER_ID'),
-                    'client_secret' => env('VIENDER_SECRET'),
-                    'username' => $request->email,
-                    'password' => $request->password,
-                    'scope' => '',
-                ],
-            ]);
-
-            $response = json_decode((string) $response->getBody(), true);
-
-            session(['laravel_token' => $response]);
-            
-        } catch (ClientException $e) {
-            $error = [
-                "error" => "An error has occured",
-                "message" => "There was an error, please try again."
-            ];
-
-            return response($error, 403);
-        }
-    }
 }
