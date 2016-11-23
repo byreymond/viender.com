@@ -3,18 +3,18 @@ window.upvotableMixin = {
 
     methods: {
         upvote(obj) {
-            var upvoteUrl = this.getUrl('self', this.answer) + "/upvotes";
+            var upvoteUrl = this.getUrl('self', obj) + "/upvotes";
 
-            axios.post(upvoteUrl, {
-                user_id: 1,
-            })
+            axios.post(upvoteUrl, {})
             .then(function (response) {
-                if(response.status == 200) {
+                if(response.status == 201) {
                     obj.upvote_count += 1;
+                }
+                if(response.status == 204) {
+                    obj.upvote_count -= 1;
                 }
             })
             .catch(function (error) {
-                console.log(error);
             });
         }
     }
