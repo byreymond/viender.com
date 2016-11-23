@@ -8,5 +8,8 @@
 <script>
     export default {
         template: "#read-page-template",
+
+        created() {
+        }
     }
 </script>
