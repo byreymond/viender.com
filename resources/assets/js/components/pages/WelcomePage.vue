@@ -17,20 +17,20 @@
                                                 <span class="text-muted">Lorem ipsum dolor sit amet.</span>
                                             </div>
                                             <div class="row">
-                                                <a class="btn btn-gplus btn-small">
+                                                <a class="btn btn-gplus btn-small" href="/oauth/google">
                                                     <i class="fa fa-google-plus-square"></i>
                                                     <span class="social-text">Continue with Google</span>
                                                 </a>
                                             </div>
-                                            <div class="row">
+<!--                                             <div class="row">
                                                 <a class="btn btn-fb btn-small">
                                                     <i class="fa fa-facebook-official"></i>
                                                     <span class="social-text">Continue with Facebook</span>
                                                 </a>
-                                            </div>
+                                            </div> -->
                                             <div class="row auth-container">
-                                                <a href="/login" class="text-muted" style="float: left;" data-toggle="modal" data-target="#modal-login">Login</a>
-                                                <a href="/register" class="text-muted" style="float: right;" data-toggle="modal" data-target="#modal-register">Signup with Email</a>
+                                                <!-- <a href="/login" class="text-muted" style="float: left;" data-toggle="modal" data-target="#modal-login">Login</a> -->
+                                                <!-- <a href="/register" class="text-muted" style="float: right;" data-toggle="modal" data-target="#modal-register">Signup with Email</a> -->
                                             </div>
                                         </div>
                                         <hr>
