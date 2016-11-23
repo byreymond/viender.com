@@ -4,13 +4,14 @@ window.authMixin = {
         return {
             auth: {
                 user: {},
+                isAuthenticated: false
             }
         }
     },
 
-    methods: {
-        isAuthenticated() {
-            
+    created() {
+        if(Vue.cookie.get('viender_access_token')) {
+            this.auth.isAuthenticated = true;
         }
     }
 }
