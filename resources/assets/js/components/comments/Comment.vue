@@ -20,7 +20,7 @@
     </div>
 
     <div class="card-block-footer">
-        <a class="card-link">Upvote | {{ comment.upvote_count }}</a>
+        <a class="card-link" @click="upvote(comment)">Upvote | {{ comment.upvote_count }}</a>
         <a class="card-link">Downvote</a>
         <a class="card-link comment" v-on:click="fetchComments(comment)">Comments | {{ comment.comment_count }}</a>
         <a class="card-link" style="float: right;">...</a>
@@ -37,7 +37,7 @@
     export default {
         template: "#Comment-template",
 
-        mixins: [hasCommentsMixin],
+        mixins: [hasCommentsMixin, upvotableMixin],
 
         props: ['comment'],
 

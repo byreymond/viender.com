@@ -34,9 +34,12 @@
             <a>{{ ayam }}</a>
         </div>
     </div>
-
-    <comment-list :comments="comments" v-if="show"></comment-list>
-
+    
+    <div v-show="show">
+        <textarea placeholder="Add a comment..." :cols="commentTextArea.cols" :rows="commentTextArea.rows" v-model="commentTextArea.body"></textarea>
+        <button @click="postComment(answer, body)">Submit</button>
+        <comment-list :comments="comments"></comment-list>
+    </div>
 </div>
 
 
@@ -46,7 +49,7 @@
     export default {
         template: "#answer-template",
 
-        mixins: [hasCommentsMixin, upvotableMixin],
+        mixins: [hasCommentsMixin, upvotableMixin, commentableMixin],
 
         props: ['answer'],
 
@@ -59,7 +62,7 @@
                         with: "owner",
                         page: 1
                     }
-                }
+                },
             }
         },
 
