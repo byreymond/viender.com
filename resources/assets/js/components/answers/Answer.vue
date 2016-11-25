@@ -11,7 +11,7 @@
             <div class="user-info row">
                 <!-- Avatar -->
                 <div class="avatar col-sm-2">
-                    <img src="/img/profile.jpg" alt="" class="img-fluid rounded-circle z-depth-2">
+                    <img :src="getUrl('avatar', answer.owner)" alt="" class="img-fluid rounded-circle z-depth-2">
                 </div>
                 
                 <!-- Answerer Bio -->
@@ -36,8 +36,11 @@
     </div>
     
     <div v-show="show">
-        <textarea placeholder="Add a comment..." :cols="commentTextArea.cols" :rows="commentTextArea.rows" v-model="commentTextArea.body"></textarea>
-        <button @click="postComment(answer, body)">Submit</button>
+        <div class="comment-form">
+            <autosize-textarea :text="commentTextArea"></autosize-textarea>
+            <button type="button" class="btn btn-primary" @click="postComment(answer, body)">Submit</button>
+        </div>
+
         <comment-list :comments="comments"></comment-list>
     </div>
 </div>

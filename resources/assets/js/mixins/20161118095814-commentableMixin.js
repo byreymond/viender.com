@@ -6,7 +6,7 @@ window.commentableMixin = {
             commentTextArea: {
                 body: '',
                 cols: 30,
-                rows: 10,
+                rows: 1,
             }
         }
     },
