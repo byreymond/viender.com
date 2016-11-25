@@ -12,13 +12,15 @@ require('./bootstrap');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.component('autosize-textarea', require('./components/commons/Autosize-Textarea.vue'));
+Vue.component('upvote-button', require('./components/commons/buttons/UpvoteButton.vue'));
+
 Vue.component('app', require('./components/layouts/App.vue'));
 Vue.component('navbar-desktop', require('./components/layouts/navigation/NavbarDesktop.vue'));
 Vue.component('navbar-mobile', require('./components/layouts/navigation/NavbarMobile.vue'));
 Vue.component('Navigation', require('./components/layouts/navigation/Navigation.vue'));
 
 Vue.component('viender-read', require('./components/VienderRead.vue'));
-Vue.component('upvote-button', require('./components/commons/buttons/UpvoteButton.vue'));
 Vue.component('answer', require('./components/answers/Answer.vue'));
 Vue.component('answer-list', require('./components/answers/AnswerList.vue'));
 Vue.component('comment', require('./components/comments/Comment.vue'));

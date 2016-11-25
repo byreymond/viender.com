@@ -65,3 +65,5 @@ axios.defaults.headers.put['Content-Type'] = 'application/json';
 if(accessToken = Vue.cookie.get('viender_access_token')) {
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + accessToken;
 }
+
+window.autosize = require('autosize');
