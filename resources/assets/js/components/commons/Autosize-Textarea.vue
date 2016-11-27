@@ -1,5 +1,5 @@
 <template  id="UpvoteButton-template">
-    <textarea placeholder="Add a comment..." :cols="text.cols" :rows="text.rows" v-model="text.body"></textarea>
+    <textarea :cols="text.cols" :rows="text.rows" v-model="text.body"></textarea>
 </template>
 
 <script>
