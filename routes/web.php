@@ -24,3 +24,6 @@ Route::get('oauth/google/callback', 'OAuth\GoogleController@callback');
 
 Route::get('oauth/facebook', 'OAuth\FacebookController@redirect');
 Route::get('oauth/facebook/callback', 'OAuth\FacebookController@callback');
+
+Route::get('/{questionSlug}', 'QuestionController@show');
+Route::resource('/{questionSlug}/answer', 'AnswerController', ['only' => ['create', 'show', 'edit']]);
