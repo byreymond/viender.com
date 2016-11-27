@@ -4,8 +4,8 @@
     <div class="card-content">
         <div class="card-block-header row">
             <!-- Answer's Question -->
-            <div class="title row">
-                <h4 class="card-title">{{ answer.question.title }}</h4>
+            <div class="title row" v-if="showQuestion">
+                <h4 class="card-title"><a target="_blank" :href="'/' + answer.question.slug">{{ answer.question.title }}</a></h4>
             </div>
 
             <div class="user-info row">
@@ -54,7 +54,16 @@
 
         mixins: [hasCommentsMixin, upvotableMixin, commentableMixin],
 
-        props: ['answer'],
+        props: {
+            answer: {
+              type: Object,
+              required: true
+            },
+            showQuestion: {
+              type: Boolean,
+              default: true
+            },
+        },
 
         data() {
             return {
