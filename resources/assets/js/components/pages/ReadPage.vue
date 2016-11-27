@@ -1,7 +1,7 @@
 <template id="read-page-template">
     <app class="read-page">
         <navigation slot="header"></navigation>
-        <answer-list></answer-list>
+        <answer-list url="/answers"></answer-list>
     </app>
 </template>
 
