@@ -26,7 +26,7 @@ window.commentableMixin = {
             })
             .then(function (response) {
                 vm.commentTextArea.body = '';
-                vm.comments.data.push(response.data);
+                vm.comments.data.unshift(response.data);
                 console.log(response);
             })
             .catch(function (error) {
