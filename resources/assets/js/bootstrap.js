@@ -19,6 +19,7 @@ require('mdbootstrap/js/bootstrap.js');
 
 window.Vue = require('vue');
 require('vue-resource');
+window.bus = new Vue();
 
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
@@ -65,3 +66,5 @@ axios.defaults.headers.put['Content-Type'] = 'application/json';
 if(accessToken = Vue.cookie.get('viender_access_token')) {
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + accessToken;
 }
+
+window.autosize = require('autosize');

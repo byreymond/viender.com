@@ -1,7 +1,7 @@
 <template  id="AnswerList-template">
     <div class="content-container">
         <div  class="answer-box" v-for="answer in answers.data">
-            <answer :answer="answer"></answer>
+            <answer :answer="answer" :show-question="showQuestion"></answer>
         </div>
         <button type="button" class="btn btn-outline-primary waves-effect" style="width: 90%; margin: auto; display: block;" @click="fetchAnswers()">Load More Answers</button>
     </div>
@@ -10,6 +10,17 @@
 <script>
     export default {
         template: "#AnswerList-template",
+
+        props: {
+            url: {
+              type: String,
+              required: true
+            },
+            showQuestion: {
+              type: Boolean,
+              default: true
+            },
+        },
 
         data() {
             return {
@@ -27,14 +38,18 @@
         },
 
         created() {
+            var vm = this;
             this.fetchAnswers();
+            bus.$on('answerPostSuccess', function(answer) {
+                vm.answers.data.unshift(answer);
+            });
         },
 
         methods: {
             fetchAnswers() {
                 var vm = this;
 
-                axios.get('/answers', vm.answersPathParams)
+                axios.get(vm.url, vm.answersPathParams)
                     .then(function (response) {
                         response.data.data.forEach(function(answer) {
                             vm.answers.data.push(answer);

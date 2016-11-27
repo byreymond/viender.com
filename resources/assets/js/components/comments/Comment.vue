@@ -5,7 +5,7 @@
         <div class="user-info row">
             <!-- Avatar -->
             <div class="avatar col-sm-2">
-                <img src="/img/profile.jpg" alt="" class="img-fluid rounded-circle z-depth-2">
+                <img :src="getUrl('avatar', comment.owner)" alt="" class="img-fluid rounded-circle z-depth-2">
             </div>
             
             <!-- Co Bio -->
@@ -20,14 +20,19 @@
     </div>
 
     <div class="card-block-footer">
-        <a class="card-link">Upvote | {{ comment.upvote_count }}</a>
+        <a class="card-link" @click="upvote(comment)">Upvote | {{ comment.upvote_count }}</a>
         <a class="card-link">Downvote</a>
         <a class="card-link comment" v-on:click="fetchComments(comment)">Comments | {{ comment.comment_count }}</a>
         <a class="card-link" style="float: right;">...</a>
     </div>
 
-    <comment-list :comments="comments" v-if="show"></comment-list>
-
+    <div v-show="show">
+        <div class="comment-form">
+            <autosize-textarea :text="commentTextArea"></autosize-textarea>
+            <button type="button" class="btn btn-primary" @click="postComment(comment, body)">Submit</button>
+        </div>
+        <comment-list :comments="comments"></comment-list>
+    </div>
 </div>
 
 
@@ -37,7 +42,7 @@
     export default {
         template: "#Comment-template",
 
-        mixins: [hasCommentsMixin],
+        mixins: [hasCommentsMixin, upvotableMixin, commentableMixin],
 
         props: ['comment'],
 

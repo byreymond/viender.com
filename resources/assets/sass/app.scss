@@ -27,6 +27,9 @@
 @import "components/cardBlock/comment-box";
 @import "components/cardBlock/comment-comment-box";
 
+// Comment
+@import "components/comment/comment-form";
+
 // App
 @import "components/app/contentContainer";
 @import "components/app/sidebar-left";
@@ -34,4 +37,8 @@
 
 header {
     margin-bottom: 50px;
+}
+
+textarea {
+    height: 2rem;
 }

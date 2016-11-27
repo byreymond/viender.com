@@ -1,4 +1,4 @@
-<template id="read-page-template">
+<template id="question-show-page-template">
     <app class="read-page">
         <navigation slot="header"></navigation>
         <answer-list url="/answers"></answer-list>
@@ -7,7 +7,7 @@
 
 <script>
     export default {
-        template: "#read-page-template",
+        template: "#question-show-page-template",
 
         created() {
         }

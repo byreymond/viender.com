@@ -17305,6 +17305,13 @@ div.comment-box {
   width: 28%;
   display: none; }
 
+.comment-form {
+  padding: 8px;
+  background-color: #f7f7f7; }
+
+.comment-form textarea {
+  background-color: white; }
+
 div.content-container {
   padding-top: 10px;
   padding-left: 0px;
@@ -17346,5 +17353,8 @@ div.content-container {
 
 header {
   margin-bottom: 50px; }
+
+textarea {
+  height: 2rem; }
 
 /*# sourceMappingURL=app.css.map */
