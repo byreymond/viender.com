@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <read-page v-if="auth.isAuthenticated"></read-page>
+    <read-page v-if="true"></read-page>
     <welcome-page v-else></welcome-page>
 @endsection

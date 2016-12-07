@@ -27,10 +27,7 @@
     </div>
 
     <div v-show="show">
-        <div class="comment-form">
-            <autosize-textarea :text="commentTextArea"></autosize-textarea>
-            <button type="button" class="btn btn-primary" @click="postComment(comment, body)">Submit</button>
-        </div>
+        <comment-form :text="commentTextArea" @postAnswerClicked="postComment(comment)"></comment-form>
         <comment-list :comments="comments"></comment-list>
     </div>
 </div>

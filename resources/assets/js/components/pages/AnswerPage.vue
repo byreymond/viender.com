@@ -1,6 +1,7 @@
 <template id="answer-page-template">
     <app class="answer-page">
-        <answer-list></answer-list>
+        <navigation slot="header"></navigation>
+        <question-list url="/questions"></question-list>
     </app>
 </template>
 

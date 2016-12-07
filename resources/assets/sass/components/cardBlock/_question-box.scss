@@ -1,19 +1,19 @@
-div.answer-box {
+div.question-box {
     padding-left: 0px;
     padding-right: 0px;
     padding-bottom: 20px;
 }
 
-.answer-box .card-block {
+.question-box .card-block {
     padding: 0;
 }
 
-.answer-box .card img {
+.question-box .card img {
     border-radius: 50%;
 }
 
 @media screen and (min-width: 0px) {
-    .answer-box .col-sm-2 {
+    .question-box .col-sm-2 {
         float: left;
         width: 36px;
     }
