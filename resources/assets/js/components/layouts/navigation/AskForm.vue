@@ -1,7 +1,7 @@
 <template  id="AskForm-template">
     <form class="form-inline float-xs-right" style="width: 100%;">
         <input class="form-control" type="text" placeholder="Ask Viender" style="border-bottom: none; width: 100%;" v-model="searchValue">
-    	<input type="submit" value="Search" @click="submitSearch($event)">
+    	<input type="submit" value="Search" @click="submitSearch($event)" style="display: none;">
     </form>
 </template>
 
