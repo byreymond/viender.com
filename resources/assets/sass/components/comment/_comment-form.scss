@@ -1,8 +1,41 @@
 .comment-form {
-    padding: 8px;
+    padding: 0.75rem;
     background-color: #f7f7f7;
+    padding-bottom: 2rem;
+}
+
+.comment-container .comment-form {
+    padding-left: 2.75rem;
+    padding-right: 0;
+}
+
+.comment-form img {
+    width: 25px;
+    margin-right: 16px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .comment-form textarea {
+    width: calc(100% - (25px + 16px + 37px + 20px));
     background-color: white;
+    vertical-align: middle;
+}
+
+.comment-form button {
+    width: 37px;
+    padding: 5px;
+    vertical-align: top;
+}
+
+.comment-form .md-textarea {
+    padding: 0;
+    min-height: 0;
+    height: 22px;
+}
+
+@media screen and (min-width: 992px) {
+    .comment-form .md-textarea {
+        height: 24px;
+    }
 }

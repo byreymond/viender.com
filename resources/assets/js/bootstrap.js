@@ -28,7 +28,6 @@ window.bus = new Vue();
  */
 
 Vue.http.interceptors.push((request, next) => {
-    console.log(Laravel);
     request.headers.set('X-CSRF-TOKEN', Laravel.csrfToken);
 
     next();
@@ -48,23 +47,34 @@ Vue.http.interceptors.push((request, next) => {
 //     key: 'your-pusher-key'
 // });
 
-
 /**
  * Packages
  */
-function requireAll(r) { r.keys().forEach(r); }
-requireAll(require.context('./mixins', true, /\.js$/));
-
 window.VueCookie = require('vue-cookie');
+window.axios = require('axios');
+window.autosize = require('autosize');
+require('./helpers.js');
+
 // Tell Vue to use the plugin 
 Vue.use(VueCookie);
 
-window.axios = require('axios');
-axios.defaults.baseURL = 'https://api.viender.dev/v1';
+axios.defaults.baseURL = api('v1');
+axios.defaults.headers.put['Accept'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
-axios.defaults.headers.put['Content-Type'] = 'application/json';
-if(accessToken = Vue.cookie.get('viender_access_token')) {
-    axios.defaults.headers.common['Authorization'] = 'Bearer ' + accessToken;
+axios.defaults.headers.put['Access-Control-Allow-Headers'] = "Content-Type, Accept, Authorization, X-XSRF-TOKEN";
+axios.defaults.headers.put['Access-Control-Allow-Credentials'] = true;
+axios.defaults.withCredentials = true;
+if(secret = JSON.parse(Vue.cookie.get('secret'))) {
+    if(accessToken = secret.access_token) {
+        axios.defaults.headers.common['Authorization'] = secret.token_type + ' ' + accessToken;
+    }
 }
 
-window.autosize = require('autosize');
+/**
+ * App
+ */
+// var Auth = require('./auth/auth.js');
+// window.Auth = new Auth();
+require('./components/helpers.js');
+function requireAll(r) { r.keys().forEach(r); }
+requireAll(require.context('./mixins', true, /\.js$/));

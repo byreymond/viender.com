@@ -12,7 +12,7 @@ class EncryptCookies extends BaseEncrypter
      * @var array
      */
     protected $except = [
-        'viender_access_token',
-        'viender_access_token_expires_at',
+        'me',
+        'secret',
     ];
 }

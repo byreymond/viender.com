@@ -24,6 +24,7 @@ Vue.component('answer-create-modal', require('./components/answers/Answer-Create
 // bids
 
 // comments
+Vue.component('comment-form', require('./components/comments/Comment-Form.vue'));
 Vue.component('comment', require('./components/comments/Comment.vue'));
 Vue.component('comment-list', require('./components/comments/CommentList.vue'));
 
@@ -45,6 +46,7 @@ Vue.component('read-page', require('./components/pages/ReadPage.vue'));
 
 // questions
 Vue.component('question', require('./components/questions/Question.vue'));
+Vue.component('question-list', require('./components/questions/Question-List.vue'));
 Vue.component('question-show', require('./components/questions/QuestionShow.vue'));
 
 

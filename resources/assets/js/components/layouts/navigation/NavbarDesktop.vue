@@ -16,9 +16,6 @@
             <div class="col-md-5">
                 <!--Navbar Items-->
                 <ul slot="nav-items" class="nav navbar-nav" style="float: right;">
-                    <li class="nav-item waves-effect waves-light active">
-                        <a class="nav-link" href="/tutor">Tutor</a>
-                    </li>
                     <li class="nav-item waves-effect waves-light">
                         <a class="nav-link" href="/">Read <span class="sr-only">(current)</span></a>
                     </li>

@@ -24,6 +24,7 @@
 @import "components/cardBlock/card-block-footer";
 @import "components/cardBlock/card-block";
 @import "components/cardBlock/answer-box";
+@import "components/cardBlock/question-box";
 @import "components/cardBlock/comment-box";
 @import "components/cardBlock/comment-comment-box";
 
@@ -41,4 +42,9 @@ header {
 
 textarea {
     height: 2rem;
+}
+
+.btn {
+    margin: 0;
+    margin-right: 12px;
 }
