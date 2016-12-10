@@ -21,8 +21,8 @@ window.url = function url(path) {
  */
 window.api = function api(path) {
     if(path[0] === '/') {
-        return config.service.viender.url + path;
+        return config.services.viender.url + path;
     }
 
-    return config.service.viender.url + '/' + path;
+    return config.services.viender.url + '/' + path;
 }

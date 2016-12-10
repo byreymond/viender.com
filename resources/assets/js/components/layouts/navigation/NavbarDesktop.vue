@@ -8,9 +8,7 @@
             </div>
             <div class="col-md-6">
                 <!--Search Form-->
-                <form class="form-inline float-xs-right" style="width: 100%;">
-                    <input class="form-control" type="text" placeholder="Ask Viender" style="border-bottom: none; width: 100%;">
-                </form>
+                <ask-form></ask-form>
             </div>
 
             <div class="col-md-5">

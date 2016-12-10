@@ -5,7 +5,7 @@ var config = {
         env: '{{ config('app.env') }}',
         url: '{{ config('app.url') }}',
     },
-    service: {
+    services: {
         viender: {
             url: '{{ config('services.viender')['url'] }}',
         }

@@ -3,9 +3,7 @@
 
         <ul class="nav nav-tabs tabs-4 bg-primary" id="mobile-menu-head">
             <!--Search Form-->
-            <form class="form-inline float-xs-right" style="width: 100%;">
-                <input class="form-control" type="text" placeholder="Ask Viender" style="border-bottom: none; width: 100%;">
-            </form>
+            <ask-form></ask-form>
             
             <!--Collapse button-->
             <li>

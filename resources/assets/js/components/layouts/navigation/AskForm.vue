@@ -1,14 +1,50 @@
 <template  id="AskForm-template">
-    <div class="content-container">
-        <div  class="answer-box" v-for="answer in answers.data">
-            <answer :answer="answer" :show-question="showQuestion"></answer>
-        </div>
-        <button type="button" class="btn btn-outline-primary waves-effect" style="width: 90%; margin: auto; display: block;" @click="fetchAnswers()">Load More Answers</button>
-    </div>
+    <form class="form-inline float-xs-right" style="width: 100%;">
+        <input class="form-control" type="text" placeholder="Ask Viender" style="border-bottom: none; width: 100%;" v-model="searchValue">
+    	<input type="submit" value="Search" @click="submitSearch($event)">
+    </form>
 </template>
 
 <script>
     export default {
         template: "#AskForm-template",
+
+        mixins: [hasLinksMixin],
+
+        data() {
+        	return {
+        		searchValue: "",
+        	}
+        },
+
+        methods: {
+        	submitSearch(event) {
+                var vm = this;
+
+                if (event) event.preventDefault();
+
+                if(vm.searchValue === '') {
+                    return;
+                }
+
+                var questionsUrl = config.services.viender.url + '/questions?with=owner';
+
+                axios.post(questionsUrl, {
+                    title: vm.searchValue,
+                    body: '',
+                })
+                .then(function (response) {
+                    if(response.status == 200) {
+                        window.location= vm.getUrl('self', response.data).replace(config.services.viender.url + '/questions', config.app.url);
+                    }
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    if(error.response.status == 409) {
+                        alert('The question already exists');
+                    }
+                });
+           	}
+        }
     }
 </script>
