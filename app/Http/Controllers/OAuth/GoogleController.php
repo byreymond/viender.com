@@ -35,7 +35,7 @@ class GoogleController extends Controller
     {
         $user = \Socialite::driver('google')->user();
 
-        $base_uri = config('services.viender')['url'];
+        $base_uri = config('services.viender.url');
 
         $http = new \GuzzleHttp\Client(['base_uri' => $base_uri]);
 
@@ -44,7 +44,7 @@ class GoogleController extends Controller
         }
 
         try {
-            $userToken = $this->findOrCreateUser($user, $http);            
+            $userData = $this->findOrCreateUser($user, $http);            
         } catch (ClientException $e) {
             $error = [
                 "error" => "An error has occured",
@@ -52,31 +52,27 @@ class GoogleController extends Controller
             ];
 
             return response($error, 403);
-        } 
-
-        session(['viender_access_token' => $userToken['access_token']]);
-        session(['viender_refresh_token' => $userToken['refresh_token']]);
-        session(['viender_access_token_expires_at' => $userToken['expires_in']]);
-
-        return redirect(url('/'));
+        }
+        $response = redirect(url('/'));
+        $response->cookie('me', json_encode(array_splice($userData, 0, 10)), 59, null, config('app.domain'), false, false);
+        $response->cookie('secret', json_encode($userData), 60*24*7, null, config('app.domain'), false, false);
+        return $response;
     }
 
     private function findOrCreateUser($user, $http) 
     {
-        $vienderConfig = config('services.viender');
-
         $response = $http->post('/users', [
             'headers' => $this->header,
             'json' => [
                 'grant_type'        => 'password',
-                'client_id'         => $vienderConfig['client_id'],
-                'client_secret'     => $vienderConfig['client_secret'],
+                'client_id'         => config('services.viender.client_id'),
+                'client_secret'     => config('services.viender.client_secret'),
                 'first_name'        => $user->user['name']['givenName'],
                 'last_name'         => $user->user['name']['familyName'],
                 'email'             => $user->email,
                 'username'          => Text::clean($user->email),
                 'avatar_url'        => $user->avatar_original,
-                'password'          => bcrypt($user->token),
+                'password'          => $user->token,
                 'gender'            => '',
                 'is_social_account' => true,
                 'social_id'         => $user->id,

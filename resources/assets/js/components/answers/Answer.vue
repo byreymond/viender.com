@@ -22,7 +22,7 @@
         </div>
 
         <div class="card-block-body">
-            <p class="card-text" v-if="!showMoreClicked">{{ answer.body.substring(0, 195) }}... <a style="color: #0275d8;" @click="showMore">(more)</a></p>
+            <p class="card-text" v-if="!showMoreClicked && answer.body.length > 195">{{ answer.body.substring(0, 195) }}... <a style="color: #0275d8;" @click="showMore">(more)</a></p>
             <p class="card-text" v-else>{{ answer.body }}</p>
         </div>
 
@@ -36,11 +36,7 @@
     </div>
     
     <div v-show="show">
-        <div class="comment-form">
-            <autosize-textarea :text="commentTextArea"></autosize-textarea>
-            <button type="button" class="btn btn-primary" @click="postComment(answer, body)">Submit</button>
-        </div>
-
+        <comment-form :text="commentTextArea" @postAnswerClicked="postComment(answer)"></comment-form>
         <comment-list :comments="comments"></comment-list>
     </div>
 </div>

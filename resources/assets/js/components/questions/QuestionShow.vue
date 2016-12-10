@@ -1,8 +1,10 @@
 <template id="question-show-template">
 
 <div class="content-container">
-    <question :question="question"></question>
-    <h5 style="padding-top: 30px;">Answers: </h5>
+    <div class="question-box">
+        <question :question="question" :show-question-detail="true"></question>
+        <h5 style="padding-top: 30px;">Answers: </h5>
+    </div>
     <answer-list :url="getUrl('answers', question)" :show-question="false"></answer-list>
 </div>
 

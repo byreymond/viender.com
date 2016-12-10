@@ -18,8 +18,7 @@ div.comment-box {
 }
 
 .comment-box .card img {
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
+    border-radius: 50%;
 }
 
 .comment-box .card-block-body {
@@ -29,10 +28,6 @@ div.comment-box {
 .comment-box .card-block-footer {
     padding-left: 41px;
     padding-bottom: 20px;
-}
-
-.comment-container .comment-container {
-    padding-left: 29px;
 }
 
 @media screen and (min-width: 0px) {

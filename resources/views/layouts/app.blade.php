@@ -24,11 +24,11 @@
 
     <!-- SCRIPTS -->
     <section>
+        @include('global')
         <script type="text/javascript" src={{ elixir("js/app.js") }}></script>
         {{-- <script src='https://www.google.com/recaptcha/api.js'></script> --}}
         <script>
             new WOW().init();
-
             $(".button-collapse").sideNav();
         </script>
     </section>
