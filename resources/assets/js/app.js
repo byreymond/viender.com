@@ -34,6 +34,7 @@ Vue.component('upvote-button', require('./components/commons/buttons/UpvoteButto
 
 // layouts
 Vue.component('app', require('./components/layouts/App.vue'));
+Vue.component('ask-form', require('./components/layouts/navigation/AskForm.vue'));
 Vue.component('navbar-desktop', require('./components/layouts/navigation/NavbarDesktop.vue'));
 Vue.component('navbar-mobile', require('./components/layouts/navigation/NavbarMobile.vue'));
 Vue.component('Navigation', require('./components/layouts/navigation/Navigation.vue'));
