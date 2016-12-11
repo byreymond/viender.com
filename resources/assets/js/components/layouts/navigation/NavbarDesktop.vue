@@ -25,11 +25,11 @@
                     </li>
                     <li class="nav-item avatar active dropdown">
                         <a class="nav-link dropdown-toggle waves-effect waves-light" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <img :src="me().avatar_url" class="img-fluid rounded-circle">
+                            <img :src="Auth.user().avatar_url" class="img-fluid rounded-circle">
                         </a>
                         <div class="dropdown-menu dropdown-warning" aria-labelledby="dropdownMenu1" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                            <a class="dropdown-item waves-effect waves-light" :href="'/profile/' + me().username">Profile</a>
-                            <a class="dropdown-item waves-effect waves-light" href="#" @click="logout()">Logout</a>
+                            <a class="dropdown-item waves-effect waves-light" :href="'/profile/' + Auth.user().username">Profile</a>
+                            <a class="dropdown-item waves-effect waves-light" href="#" @click="Auth.user().logout()">Logout</a>
                         </div>
                     </li>
 
@@ -43,15 +43,6 @@
     export default {
         template: "#navigation-template",
 
-        methods: {
-            me() {
-                return me;
-            },
-
-            logout() {
-                Vue.cookie.delete('secret', {domain: config.app.domain});
-                window.location = config.app.url + '/welcome';
-            }
-        }
+        mixins: [authMixin]
     }
 </script>

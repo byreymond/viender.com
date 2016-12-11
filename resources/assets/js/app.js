@@ -57,9 +57,6 @@ Vue.component('question-show', require('./components/questions/QuestionShow.vue'
 const app = new Vue({
     el: '#app',
 
-    mixins: [authMixin],
-
-
     created() {
         console.log(this);
     },

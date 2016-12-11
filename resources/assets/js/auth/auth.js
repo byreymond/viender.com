@@ -1,17 +1,18 @@
 class Auth {
     constructor() {
-        this.user = {};
-        this.isLoading = false;
-        this.isAuthenticated = false;
-        this.authenticate();
+        me.logout = this.logout;
     }
 
-    get user() {
-        if( ! this.isLoading) {
-            this.authenticate();
+    user() {
+        return me;
+    }
+
+    hasAccessToken() {
+        if(Vue.cookie.get('secret')) {
+            return true;
         }
 
-        return this._user;
+        return false;
     }
 
     url(rel) {
@@ -20,30 +21,9 @@ class Auth {
         })[0].url;
     }
 
-    authenticate() {
-        var pathParams = {
-            params: {
-                with: "owner,question",
-            }
-        };
-
-        this.isLoading = true;
-
-        axios.get(api('users/authenticate'), pathParams)
-            .then(function (response) {
-                if(response.status == 200) {
-                    this._user = response.data;
-                    this.isAuthenticated = true;
-                } else if(response.status == 401) {
-                    _user = undefined;
-                    bus.$emit('unauthenticated');
-                    this.isAuthenticated = false;
-                }
-                this.isLoading = false;
-            }.bind(this))
-            .catch(function (error) {
-                console.log(error);
-            });
+    logout() {
+        Vue.cookie.delete('secret', {domain: config.app.domain});
+        window.location = url('/welcome');
     }
 }
 
