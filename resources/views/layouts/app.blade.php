@@ -29,7 +29,9 @@
         {{-- <script src='https://www.google.com/recaptcha/api.js'></script> --}}
         <script>
             new WOW().init();
-            $(".button-collapse").sideNav();
+            $(".button-collapse").sideNav({
+
+            });
         </script>
     </section>
 </body>
