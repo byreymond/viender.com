@@ -33,6 +33,10 @@ Vue.http.interceptors.push((request, next) => {
     next();
 });
 
+// Comment these three for local build.
+Vue.config.devtools = false
+Vue.config.debug = false
+Vue.config.silent = true
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
