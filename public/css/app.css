@@ -17173,7 +17173,12 @@ button.toast-close-button {
   margin-right: 0; }
 
 .side-nav {
-  width: 270px; }
+  /*width: 270px;*/ }
+
+.side-nav .sn-ad-avatar-wrapper p {
+  padding-top: 80px;
+  padding-bottom: 8px;
+  padding-left: 10px; }
 
 .navbar-mobile .side-nav li a.nav-link {
   color: #373a3c; }
@@ -17338,7 +17343,8 @@ div.comment-box {
 .comment-form button {
   width: 37px;
   padding: 5px;
-  vertical-align: top; }
+  vertical-align: top;
+  font-size: 10px; }
 
 .comment-form .md-textarea {
   padding: 0;
@@ -17389,7 +17395,7 @@ div.content-container {
     display: none; } }
 
 header {
-  margin-bottom: 37px; }
+  margin-bottom: 69px; }
 
 textarea {
   height: 2rem; }
@@ -17401,5 +17407,9 @@ textarea {
 .row {
   margin-right: 0;
   margin-left: 0; }
+
+@media screen and (min-width: 992px) {
+  header {
+    margin-bottom: 37px; } }
 
 /*# sourceMappingURL=app.css.map */

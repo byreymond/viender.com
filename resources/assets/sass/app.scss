@@ -37,7 +37,7 @@
 @import "components/app/sidebar-right";
 
 header {
-    margin-bottom: 37px;
+    margin-bottom: 69px;
 }
 
 textarea {
@@ -52,4 +52,10 @@ textarea {
 .row {
     margin-right: 0;
     margin-left: 0;
+}
+
+@media screen and (min-width: 992px) {
+	header {
+	    margin-bottom: 37px;
+	}
 }
