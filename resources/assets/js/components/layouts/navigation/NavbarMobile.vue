@@ -22,9 +22,9 @@
         <ul class="side-nav blue-grey lighten-5" id="mobile-menu" width="280px">
             <li>
                 <div class="logo-wrapper sn-ad-avatar-wrapper">
-                    <img :src="me().avatar_url" class="img-fluid rounded-circle">
+                    <img :src="Auth.user().avatar_url" class="img-fluid rounded-circle">
                     <div class="rgba-stylish-strong">
-                        <p class="user white-text">{{ me().name }}<br> {{ me().email }}
+                        <p class="user white-text">{{ Auth.user().name }}<br> {{ Auth.user().email }}
                         </p>
                     </div>
                 </div>
@@ -37,10 +37,10 @@
             </li>
             <hr>
             <li class="nav-item waves-effect waves-light">
-                <a class="nav-link" :href="'/profile/' + me().username">Profile</a>
+                <a class="nav-link" :href="'/profile/' + Auth.user().username">Profile</a>
             </li>
             <li class="nav-item waves-effect waves-light">
-                <a class="nav-link" href="#" @click="logout()">Logout</a>
+                <a class="nav-link" href="#" @click="Auth.user().logout()">Logout</a>
             </li>                         
         </ul>
     </div>
@@ -50,16 +50,7 @@
     export default {
         template: "#navigation-template",
 
-        methods: {
-            me() {
-                return me;
-            },  
-                  
-            logout() {
-                Vue.cookie.delete('secret', {domain: config.app.domain});
-                window.location = config.app.url + '/welcome';
-            }
-        }
+        mixins: [authMixin]
     }
 
 </script>

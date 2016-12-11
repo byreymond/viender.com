@@ -76,13 +76,14 @@ if(secret = JSON.parse(Vue.cookie.get('secret'))) {
 /**
  * App
  */
-// var Auth = require('./auth/auth.js');
-// window.Auth = new Auth();
-require('./components/helpers.js');
-function requireAll(r) { r.keys().forEach(r); }
-requireAll(require.context('./mixins', true, /\.js$/));
 
 window.me = JSON.parse(Vue.cookie.get('me'));
 if(window.me) {
 	window.me.name = window.me.first_name + ' ' + window.me.last_name;
 }
+
+var Auth = require('./auth/auth.js');
+window.Auth = new Auth();
+require('./components/helpers.js');
+function requireAll(r) { r.keys().forEach(r); }
+requireAll(require.context('./mixins', true, /\.js$/));
