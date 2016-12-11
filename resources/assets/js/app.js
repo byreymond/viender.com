@@ -44,6 +44,7 @@ Vue.component('answer-page', require('./components/pages/AnswerPage.vue'));
 Vue.component('auction-page', require('./components/pages/AuctionPage.vue'));
 Vue.component('welcome-page', require('./components/pages/WelcomePage.vue'));
 Vue.component('read-page', require('./components/pages/ReadPage.vue'));
+Vue.component('profile-page', require('./components/pages/ProfilePage.vue'));
 
 // questions
 Vue.component('question', require('./components/questions/Question.vue'));
@@ -58,8 +59,17 @@ const app = new Vue({
 
     mixins: [authMixin],
 
-    mounted() {
+
+    created() {
         console.log(this);
+    },
+
+    methods: {
+    	isAuthenticated() {
+    		if(Vue.cookie.get('secret')) {
+    			return true;
+    		}
+    	}
     }
 
 });

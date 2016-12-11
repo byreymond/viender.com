@@ -17389,7 +17389,7 @@ div.content-container {
     display: none; } }
 
 header {
-  margin-bottom: 50px; }
+  margin-bottom: 37px; }
 
 textarea {
   height: 2rem; }
@@ -17397,5 +17397,9 @@ textarea {
 .btn {
   margin: 0;
   margin-right: 12px; }
+
+.row {
+  margin-right: 0;
+  margin-left: 0; }
 
 /*# sourceMappingURL=app.css.map */

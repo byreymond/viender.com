@@ -18,6 +18,7 @@
   "dependencies": {
     "autosize": "^3.0.19",
     "axios": "^0.15.2",
+    "es6-promise": "^4.0.5",
     "mdbootstrap": "^4.2.0",
     "vue-cookie": "^1.1.3"
   }

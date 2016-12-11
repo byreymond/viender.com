@@ -54,6 +54,9 @@ window.VueCookie = require('vue-cookie');
 window.axios = require('axios');
 window.autosize = require('autosize');
 require('./helpers.js');
+// if( ! window.Promise) {
+// 	window.Promise = require('es6-promise').Promise;
+// }
 
 // Tell Vue to use the plugin 
 Vue.use(VueCookie);
@@ -78,3 +81,8 @@ if(secret = JSON.parse(Vue.cookie.get('secret'))) {
 require('./components/helpers.js');
 function requireAll(r) { r.keys().forEach(r); }
 requireAll(require.context('./mixins', true, /\.js$/));
+
+window.me = JSON.parse(Vue.cookie.get('me'));
+if(window.me) {
+	window.me.name = window.me.first_name + ' ' + window.me.last_name;
+}

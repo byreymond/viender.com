@@ -10,11 +10,15 @@ use GuzzleHttp\Exception\ServerException;
 
 class GoogleController extends Controller
 {
-    protected $header = [
-        'Origin'            => 'https://web.viender.dev',
-        'Content-Type'      => 'application/json',
-        'Accept'            => 'application/json'
-    ];
+    protected $header;
+
+    public function __construct() {
+        $this->header = [
+            'Origin'            => config('app.url'),
+            'Content-Type'      => 'application/json',
+            'Accept'            => 'application/json'
+        ];
+    }
 
     /**
      * Redirect the user to the Google authentication page.
@@ -44,7 +48,7 @@ class GoogleController extends Controller
         }
 
         try {
-            $userData = $this->findOrCreateUser($user, $http);            
+            $userData = $this->findOrCreateUser($user, $http);        
         } catch (ClientException $e) {
             $error = [
                 "error" => "An error has occured",
@@ -53,9 +57,13 @@ class GoogleController extends Controller
 
             return response($error, 403);
         }
+        
+        $userData['access_token'] = encrypt($userData['access_token']);
+
         $response = redirect(url('/'));
-        $response->cookie('me', json_encode(array_splice($userData, 0, 10)), 59, null, config('app.domain'), false, false);
-        $response->cookie('secret', json_encode($userData), 60*24*7, null, config('app.domain'), false, false);
+        $response->cookie('me', json_encode(array_splice($userData, 0, 10)), 60*24*360, null, config('app.domain'), false, false);
+        $response->cookie('secret', json_encode(array_splice($userData, 0, 3)), 59, null, config('app.domain'), false, false);
+        $response->cookie('secret_r', $userData['refresh_token'], 60*24*360, null, config('app.domain'));
         return $response;
     }
 
