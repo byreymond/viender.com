@@ -8,18 +8,13 @@ class PagesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth.secret')->except('read');
+        $this->middleware('auth.secret')->except('welcome');
         $this->middleware('guest');
     }
 
     public function welcome() 
     {
-        return view('home');
-    }
-
-    public function tutor() 
-    {
-        return view('pages.tutor');
+        return view('pages.welcome');
     }
 
     public function read() 

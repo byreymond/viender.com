@@ -1,0 +1,148 @@
+    html,
+    body,
+    header,
+    .welcome-page .view {
+        height: 100%;
+    }
+
+    /* Navigation*/
+    .welcome-page .navbar {
+        background-color: transparent;
+    }
+
+    .welcome-page .top-nav-collapse {
+        background-color: #4285F4;
+    }
+
+    .welcome-page .card-block .text-xs-center {
+        max-width: 300px;
+        margin: auto;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .welcome-page .navbar {
+            background-color: #4285F4;
+        }
+    }
+    /*Intro*/
+
+    .welcome-page .view {
+        background: url("https://qsf.ec.quoracdn.net/-3-images.home.logged_out_bg3.png5a4a1c1d3b9c54c5.png")no-repeat center center fixed;
+        background-color: white;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    @media (max-width: 768px) {
+        .welcome-page .container {
+            padding: 0;
+            width: 100%;
+        }
+
+        .welcome-page .col-lg-12 {
+            padding: 0;
+            width: 100%;
+        }
+
+        .welcome-page .card {
+            box-shadow: none;
+            margin-bottom: 0;
+        }
+    }
+
+    .welcome-page .description {
+        padding-top: 25%;
+        padding-bottom: 3rem;
+        color: #3b3b3b;
+    }
+
+    .welcome-page .center {
+        text-align: center;
+    }
+
+    @media (max-width: 992px) {
+        .welcome-page .description {
+            padding-top: 40px;
+            text-align: center;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .welcome-page .full-bg-img,
+        .welcome-page .view {
+            height: 100%;
+            position: relative;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .welcome-page .container {
+            width: 1140px;
+            max-width: 600px;
+        }
+    }
+
+
+    #app {
+        height: 100%;
+    }
+
+    .welcome-page .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .welcome-page .btn-small {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 10px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    .welcome-page .btn, .btn-flat, .classic-tabs li a, footer.page-footer .title {
+         text-transform: none; 
+    }
+
+    .welcome-page a.btn {
+        padding: 11.5px;
+        text-align: left;
+    }
+
+    .welcome-page .social-text {
+        padding-left: 10px
+    }
+
+    .welcome-page .btn .fa {
+        font-size: 2rem;
+    }
+
+    .welcome-page img.logo {
+        width: 64px;
+        margin: auto;
+    }
+
+    .welcome-page .welcome-header {
+        margin-bottom: 20px;
+    }
+
+    .welcome-page .view .logo {
+        display: inline-block;
+    }
+
+    .welcome-page .logo-text {
+        vertical-align: middle;
+        padding-left: 10px;
+        margin-bottom: 0;
+    }
+
+    .welcome-page .logo-section {
+        margin-bottom: 10px;
+    }
+
+    .welcome-page .auth-container {
+        max-width: 70%;
+        margin: auto;
+    }

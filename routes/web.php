@@ -15,7 +15,7 @@ Auth::routes();
 
 Route::get('/', 'PagesController@read');
 
-Route::get('/tutor', 'PagesController@tutor');
+Route::get('/welcome', 'PagesController@welcome');
 Route::get('/read', 'PagesController@read');
 Route::get('/answer', 'PagesController@answer');
 Route::get('/profile/{username}', 'PagesController@profile');
