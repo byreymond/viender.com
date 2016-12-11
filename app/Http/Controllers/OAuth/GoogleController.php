@@ -58,8 +58,6 @@ class GoogleController extends Controller
             return response($error, 403);
         }
         
-        $userData['access_token'] = encrypt($userData['access_token']);
-
         $response = redirect(url('/'));
         $response->cookie('me', json_encode(array_splice($userData, 0, 10)), 60*24*360, null, config('app.domain'), false, false);
         $response->cookie('secret', json_encode(array_splice($userData, 0, 3)), 59, null, config('app.domain'), false, false);

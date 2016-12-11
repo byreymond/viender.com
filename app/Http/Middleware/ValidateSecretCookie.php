@@ -66,7 +66,6 @@ class ValidateSecretCookie
             ]);
 
             $secret = json_decode((string) $response->getBody(), true);
-            $secret['access_token'] = encrypt($secret['access_token']);
         }
 
 
