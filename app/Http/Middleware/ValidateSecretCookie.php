@@ -33,7 +33,7 @@ class ValidateSecretCookie
             // if no secret cookie, try to get new one
             if( ! $newSecret = $this->getNewToken($request)) {
                 // if cannot get new token redirect to home page
-                return redirect(url('/'));
+                return redirect(url('/welcome'));
             } else {
                 $response->cookie('secret', json_encode(array_splice($newSecret, 0, 3)), 59, null, config('app.domain'), false, false);
                 $response->cookie('secret_r', json_encode($newSecret['refresh_token']), 60*24*360, null, config('app.domain'));

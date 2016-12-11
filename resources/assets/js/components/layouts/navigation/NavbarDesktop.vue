@@ -50,7 +50,7 @@
 
             logout() {
                 Vue.cookie.delete('secret', {domain: '.viender.dev'});
-                window.location = config.app.url;
+                window.location = config.app.url + '/welcome';
             }
         }
     }

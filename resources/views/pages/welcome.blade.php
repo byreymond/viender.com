@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <read-page></read-page>
+    <welcome-page></welcome-page>
 @endsection
