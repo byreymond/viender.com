@@ -56,7 +56,7 @@
                         vm.questionsPathParams.params.page += 1;
                     })
                     .catch(function (error) {
-                        alert(error.response);
+                        alert(error);
                         console.log(error);
                     });
                 alert('akhir get');
