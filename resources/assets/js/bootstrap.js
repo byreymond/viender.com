@@ -68,7 +68,7 @@ Vue.use(VueCookie);
 axios.defaults.baseURL = api('v1');
 axios.defaults.headers.put['Accept'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
-axios.defaults.headers.put['Access-Control-Allow-Headers'] = "Content-Type, Accept, Authorization, X-XSRF-TOKEN, X-Requested-With";
+axios.defaults.headers.put['Access-Control-Allow-Headers'] = "Content-Type, Accept, Authorization, X-XSRF-TOKEN, Content-Length, X-Requested-With";
 axios.defaults.headers.put['Access-Control-Allow-Credentials'] = true;
 axios.defaults.withCredentials = true;
 if(secret = JSON.parse(Vue.cookie.get('secret'))) {
