@@ -10,11 +10,7 @@ class Auth {
     }
 
     hasAccessToken() {
-        if(Vue.cookie.get('secret')) {
-            return true;
-        }
 
-        return false;
     }
 
     url(rel) {
@@ -24,7 +20,7 @@ class Auth {
     }
 
     logout() {
-        Vue.cookie.delete('secret', {domain: config.app.domain});
+        Vue.cookie.delete('pt', {domain: config.app.domain});
         window.location = url('/welcome');
     }
 }

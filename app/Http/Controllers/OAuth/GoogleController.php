@@ -57,11 +57,10 @@ class GoogleController extends Controller
 
             return response($error, 403);
         }
-        
         $response = redirect(url('/'));
+        $response->cookie('pt', $userData['token_type'] . ' ' . $userData['access_token'], $userData['expires_in']/60, null, config('app.domain'));
+        $response->cookie('ptr', $userData['refresh_token'], 60*24*360, null, config('app.domain'));
         $response->cookie('me', json_encode(array_splice($userData, 0, 10)), 60*24*360, null, config('app.domain'), false, false);
-        $response->cookie('secret', json_encode(array_splice($userData, 0, 3)), 59, null, config('app.domain'), false, false);
-        $response->cookie('secret_r', $userData['refresh_token'], 60*24*360, null, config('app.domain'));
         return $response;
     }
 

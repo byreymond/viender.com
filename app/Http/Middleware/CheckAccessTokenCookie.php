@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class ValidateSecretCookie
+class CheckAccessTokenCookie
 {
     protected $header;
 
@@ -29,14 +29,14 @@ class ValidateSecretCookie
     {
         $response = $next($request);
 
-        if( ! $request->cookie('secret')) {
+        if( ! $request->cookie('pt')) {
             // if no secret cookie, try to get new one
             if( ! $newSecret = $this->getNewToken($request)) {
                 // if cannot get new token redirect to home page
                 return redirect(url('/welcome'));
             } else {
-                $response->cookie('secret', json_encode(array_splice($newSecret, 0, 3)), 59, null, config('app.domain'), false, false);
-                $response->cookie('secret_r', json_encode($newSecret['refresh_token']), 60*24*360, null, config('app.domain'));
+                $response->cookie('pt', $newSecret['token_type'] . ' ' . $newSecret['access_token'], $newSecret['expires_in'], null, config('app.domain'));
+                $response->cookie('ptr', $newSecret['refresh_token'], 60*24*360, null, config('app.domain'));
             }
         }
 
@@ -47,7 +47,7 @@ class ValidateSecretCookie
     {
         $secret = null;
 
-        if( $refreshToken = $request->cookie('secret_r')) {
+        if( $refreshToken = $request->cookie('ptr')) {
             $http = new \GuzzleHttp\Client(['base_uri' => config('services.viender.url')]);
 
             if(config('app.env') == 'local') {
