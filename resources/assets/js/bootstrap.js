@@ -66,10 +66,10 @@ require('./helpers.js');
 Vue.use(VueCookie);
 
 axios.defaults.baseURL = api('v1');
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+axios.defaults.headers.common['Authorization'] = '';
 axios.defaults.headers.common['Accept'] = 'application/json';
 axios.defaults.headers.common['Content-Type'] = 'application/json';
-axios.defaults.headers.put['Access-Control-Allow-Headers'] = "Accept, Authorization, X-XSRF-TOKEN, Content-Length, X-Requested-With";
+axios.defaults.headers.put['Access-Control-Allow-Headers'] = "Authorization, X-XSRF-TOKEN, Content-Length, X-Requested-With";
 axios.defaults.withCredentials = true;
 
 
