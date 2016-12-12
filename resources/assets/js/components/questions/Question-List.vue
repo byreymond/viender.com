@@ -45,10 +45,8 @@
         methods: {
             fetchquestions() {
                 var vm = this;
-                alert('mau mulai');
                 axios.get(vm.url, vm.questionsPathParams)
                     .then(function (response) {
-                        alert(response);
                         response.data.data.forEach(function(question) {
                             vm.questions.data.push(question);
                         });
@@ -56,10 +54,8 @@
                         vm.questionsPathParams.params.page += 1;
                     })
                     .catch(function (error) {
-                        alert(error.status);
                         console.log(error);
                     });
-                alert('akhir get');
             },        
         }
     }
