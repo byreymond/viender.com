@@ -1,6 +1,8 @@
 class Auth {
     constructor() {
-        me.logout = this.logout;
+        if(me !== null) {
+            me.logout = this.logout;
+        }
     }
 
     user() {
