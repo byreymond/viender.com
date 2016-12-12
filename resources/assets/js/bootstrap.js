@@ -66,9 +66,8 @@ require('./helpers.js');
 Vue.use(VueCookie);
 
 axios.defaults.baseURL = api('v1');
-axios.defaults.headers.post['Access-Control-Allow-Headers'] = "X-XSRF-TOKEN";
 axios.defaults.withCredentials = true;
-
+axios.defaults.headers.common['Access-Control-Allow-Headers'] = 'Access-Control-Allow-Headers, X-XSRF-TOKEN';
 
 /**
  * App
