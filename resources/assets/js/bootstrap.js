@@ -70,7 +70,7 @@ axios.defaults.headers.post['Authorization'] = '';
 axios.defaults.headers.post['Accept'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Access-Control-Allow-Headers'] = "Authorization, X-XSRF-TOKEN, Content-Length, X-Requested-With";
-axios.defaults.headers.get['Access-Control-Allow-Headers'] = "X-XSRF-TOKEN";
+axios.defaults.headers.common['Access-Control-Allow-Headers'] = "X-XSRF-TOKEN";
 axios.defaults.withCredentials = true;
 
 
