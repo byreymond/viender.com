@@ -34,9 +34,9 @@ Vue.http.interceptors.push((request, next) => {
 });
 
 // Comment these three for local build.
-// Vue.config.devtools = false
-// Vue.config.debug = false
-// Vue.config.silent = true
+Vue.config.devtools = false
+Vue.config.debug = false
+Vue.config.silent = true
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -66,16 +66,7 @@ require('./helpers.js');
 Vue.use(VueCookie);
 
 axios.defaults.baseURL = api('v1');
-axios.defaults.headers.put['Accept'] = 'application/json';
-axios.defaults.headers.post['Content-Type'] = 'application/json';
-axios.defaults.headers.put['Access-Control-Allow-Headers'] = "Content-Type, Accept, Authorization, X-XSRF-TOKEN";
-axios.defaults.headers.put['Access-Control-Allow-Credentials'] = true;
 axios.defaults.withCredentials = true;
-if(secret = JSON.parse(Vue.cookie.get('secret'))) {
-    if(accessToken = secret.access_token) {
-        axios.defaults.headers.common['Authorization'] = secret.token_type + ' ' + accessToken;
-    }
-}
 
 /**
  * App

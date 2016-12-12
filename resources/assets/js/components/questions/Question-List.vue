@@ -45,7 +45,6 @@
         methods: {
             fetchquestions() {
                 var vm = this;
-
                 axios.get(vm.url, vm.questionsPathParams)
                     .then(function (response) {
                         response.data.data.forEach(function(question) {
