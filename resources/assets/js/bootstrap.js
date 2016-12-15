@@ -34,9 +34,9 @@ Vue.http.interceptors.push((request, next) => {
 });
 
 // Comment these three for local build.
-Vue.config.devtools = false
-Vue.config.debug = false
-Vue.config.silent = true
+// Vue.config.devtools = false
+// Vue.config.debug = false
+// Vue.config.silent = true
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -57,6 +57,7 @@ Vue.config.silent = true
 window.VueCookie = require('vue-cookie');
 window.axios = require('axios');
 window.autosize = require('autosize');
+require('summernote');
 require('./helpers.js');
 // if( ! window.Promise) {
 // 	window.Promise = require('es6-promise').Promise;

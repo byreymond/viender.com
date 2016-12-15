@@ -1,7 +1,6 @@
 <template id="question-template">
 
     <div class="card card-block">
-        <answer-create-modal :text="answerTextArea" @postAnswerClicked="postAnswer(question)" ref="answer-form" :modalid="'answerCreateModal' + question.id"></answer-create-modal>
         <div class="card-content">
             <div class="card-block-header row">
                 <!-- question's Question -->
@@ -16,7 +15,7 @@
             </div>
 
             <div class="card-block-footer">
-                <a class="btn btn-primary btn-upvote waves-effect waves-light" data-toggle="modal" :data-target="'#answerCreateModal' + question.id"><strong>Answer</strong></a>
+                <a class="btn btn-primary btn-upvote waves-effect waves-light" data-toggle="modal" data-target="#answerCreateModal" @click="answerClicked()"><strong>Answer</strong></a>
                 <a class="card-link">Downvote</a>
                 <a class="card-link" v-on:click="fetchComments(question)">Comments | {{ question.comment_count }}</a>
                 <a class="card-link" style="float: right;">...</a>
@@ -24,7 +23,7 @@
         </div>
         
         <div v-show="show">
-            <comment-form :text="commentTextArea" @postAnswerClicked="postComment(question)"></comment-form>
+            <comment-form :text="commentTextArea" @postCommentClicked="postComment(question)"></comment-form>
             <comment-list :comments="comments"></comment-list>
         </div>
     </div>
@@ -37,10 +36,16 @@
 
         mixins: [hasCommentsMixin, upvotableMixin, commentableMixin, answerableMixin],
 
-        props: ['question', 'showQuestionDetail'],
+        props: ['question', 'showQuestionDetail', 'single'],
 
         data() {
             return {
+                answerText: {
+                    body: '',
+                    cols: 30,
+                    rows: 3,
+                },
+
                 answerButtonDataTarget: null,
 
                 showMoreClicked: false,
@@ -58,6 +63,12 @@
             showMore() {
                 this.showMoreClicked = true;
             },
+
+            answerClicked() {
+                var vm = this;
+
+                bus.$emit('question.answerButton.click', vm.question, vm.answerText);
+            }
         }
     }
 </script>

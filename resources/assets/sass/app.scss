@@ -5,6 +5,8 @@
 // Variables
 // @import "variables";
 
+@import "node_modules/summernote/src/less/summernote.scss";
+
 // Material Design Bootstrap
 @import "css/bootstrap2.min";
 @import "css/mdb2.min";
@@ -33,13 +35,31 @@
 // Comment
 @import "components/comment/comment-form";
 
+// Modal
+@import "components/modal/modal";
+
 // App
 @import "components/app/contentContainer";
 @import "components/app/sidebar-left";
 @import "components/app/sidebar-right";
 
-header {
-    margin-bottom: 69px;
+.navbar {
+	position: fixed;
+    z-index: 9700;
+}
+
+#sidenav-overlay {
+    position: fixed;
+    z-index: 9800;
+}
+
+.side-nav {
+    position: fixed;
+    z-index: 9900;
+}
+
+main {
+    margin-top: 69px;
 }
 
 textarea {
@@ -56,8 +76,16 @@ textarea {
     margin-left: 0;
 }
 
+ul {
+    padding-left: 20px;
+}
+
+.card-text ul, .card-text ul li {
+    list-style-type: disc;
+}
+
 @media screen and (min-width: 992px) {
-	header {
-	    margin-bottom: 37px;
+	main {
+	    margin-top: 37px;
 	}
 }
