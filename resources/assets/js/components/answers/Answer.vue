@@ -23,7 +23,7 @@
 
         <div class="card-block-body">
             <p class="card-text" v-if="!showMoreClicked && answer.body.length > 195">{{ answer.body.substring(0, 195) }}... <a style="color: #0275d8;" @click="showMore">(more)</a></p>
-            <p class="card-text" v-else>{{ answer.body }}</p>
+            <div class="card-text" v-html="answer.body" v-else></div>
         </div>
 
         <div class="card-block-footer">

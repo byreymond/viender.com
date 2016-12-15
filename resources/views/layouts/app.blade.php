@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,9 +11,20 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
-    <!-- Bootstrap core CSS -->
+    <!-- Custom head -->
+    @yield('head')  
+      
+    <!-- App CSS -->
     <link href={{ elixir("css/app.css") }} rel="stylesheet">
 
+    <!-- Summernote CSS -->
+    <link href={{ url('/css/summernote.css') }} rel="stylesheet">
+
+    <!-- Configs -->
+    @include('global')
+
+    <!-- App Bootstrap JS -->
+    <script type="text/javascript" src={{ elixir("js/bootstrap.js") }}></script>
 </head>
 
 <body>
@@ -24,14 +34,22 @@
 
     <!-- SCRIPTS -->
     <section>
-        @include('global')
-        <script type="text/javascript" src={{ elixir("js/app.js") }}></script>
+        <!-- Recaptcha JS -->
         {{-- <script src='https://www.google.com/recaptcha/api.js'></script> --}}
+        
+        <!-- Summernote JS -->
+        <script type="text/javascript" src={{ url('/js/summernote.min.js') }}></script>
+
+        <!-- App JS -->
+        <script type="text/javascript" src={{ elixir("js/app.js") }}></script>
+
+        <!-- Custom script -->
+        @yield('script')
+
+        <!-- Initialization -->
         <script>
             new WOW().init();
-            $(".button-collapse").sideNav({
-
-            });
+            $(".button-collapse").sideNav();
         </script>
     </section>
 </body>

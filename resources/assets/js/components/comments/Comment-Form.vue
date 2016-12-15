@@ -14,7 +14,7 @@
 
         methods: {
             emitPost() {
-                this.$emit('postAnswerClicked');
+                this.$emit('postCommentClicked');
             },
 
             getMeAvatar() {

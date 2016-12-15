@@ -1,16 +1,16 @@
 <template id="app-template">
     <div class="app">
-        <header>
+        <div class="v-header">
             <slot name="header"></slot>
-        </header>
+        </div>
 
         <main>
             <slot></slot>
         </main>
 
-        <footer>
+        <div class="v-footer">
             <slot name="footer"></slot>
-        </footer>
+        </div>
     </div>
 </template>
 
