@@ -4,12 +4,17 @@
             <question :question="question" :show-question-detail="false"></question>
         </div>
         <button type="button" class="btn btn-outline-primary waves-effect" style="width: 90%; margin: auto; display: block;" @click="fetchquestions()">Load More Questions</button>
+
+        <answer-create-modal id="answerCreateModal" ref="answer-form"></answer-create-modal>
+
     </div>
 </template>
 
 <script>
     export default {
         template: "#QuestionList-template",
+
+        mixins: [answerableMixin],
 
         props: {
             url: {
@@ -37,12 +42,22 @@
             }
         },
 
-        created() {
+        mounted() {
             var vm = this;
-            this.fetchquestions();
+            vm.fetchquestions();
+            vm.callbacks();
         },
 
         methods: {
+            callbacks() {
+                var vm = this;
+
+                bus.$on('answerCreateModal.post.click', function(question, text) {
+                    console.log(question);
+                    vm.postAnswer(question, text)
+                })
+            },
+
             fetchquestions() {
                 var vm = this;
                 axios.get(vm.url, vm.questionsPathParams)
@@ -56,7 +71,7 @@
                     .catch(function (error) {
                         console.log(error);
                     });
-            },        
+            },
         }
     }
 </script>

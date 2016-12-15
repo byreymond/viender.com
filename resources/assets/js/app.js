@@ -5,7 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,13 +31,15 @@ Vue.component('comment-list', require('./components/comments/CommentList.vue'));
 // commons
 Vue.component('autosize-textarea', require('./components/commons/Autosize-Textarea.vue'));
 Vue.component('upvote-button', require('./components/commons/buttons/UpvoteButton.vue'));
+Vue.component('viender-text-editor', require('./components/commons/Viender-Text-Editor.vue'));
 
 // layouts
 Vue.component('app', require('./components/layouts/App.vue'));
 Vue.component('ask-form', require('./components/layouts/navigation/AskForm.vue'));
 Vue.component('navbar-desktop', require('./components/layouts/navigation/NavbarDesktop.vue'));
 Vue.component('navbar-mobile', require('./components/layouts/navigation/NavbarMobile.vue'));
-Vue.component('Navigation', require('./components/layouts/navigation/Navigation.vue'));
+Vue.component('navigation', require('./components/layouts/navigation/Navigation.vue'));
+Vue.component('side-nav', require('./components/layouts/navigation/SideNav.vue'));
 
 // pages
 Vue.component('answer-page', require('./components/pages/AnswerPage.vue'));
@@ -57,8 +59,10 @@ Vue.component('question-show', require('./components/questions/QuestionShow.vue'
 const app = new Vue({
     el: '#app',
 
-    created() {
+    mounted() {
         console.log(this);
+
+        this.bodyIsNotScrollableWhenInModal();
     },
 
     methods: {
@@ -66,7 +70,11 @@ const app = new Vue({
     		if(Vue.cookie.get('secret')) {
     			return true;
     		}
-    	}
+    	},
+
+        bodyIsNotScrollableWhenInModal() {
+
+        }
     }
 
 });

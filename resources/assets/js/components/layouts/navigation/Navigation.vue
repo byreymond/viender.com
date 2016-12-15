@@ -1,15 +1,18 @@
 <template id="navigation-template">
-    <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
-        <div class="row">    
-           
-        </div>
+    <div class="navigation">
+        <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
+            <div class="row">    
+               
+            </div>
 
-        <!--Content for large and medium screens-->
-        <navbar-desktop></navbar-desktop>
+            <!--Content for large and medium screens-->
+            <navbar-desktop></navbar-desktop>
 
-        <!-- Content for mobile devices-->
-        <navbar-mobile></navbar-mobile>
-    </nav>
+            <!-- Content for mobile devices-->
+            <navbar-mobile></navbar-mobile>
+        </nav>
+        <side-nav slot="header"></side-nav>
+    </div>
 </template>
 
 <script>
