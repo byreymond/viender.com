@@ -20,6 +20,8 @@ Route::get('/read', 'PagesController@read');
 Route::get('/answer', 'PagesController@answer');
 Route::get('/profile/{username}', 'PagesController@profile');
 
+Route::get('oauth/token/refresh', 'OAuthController@refresh');
+
 Route::get('oauth/google', 'OAuth\GoogleController@redirect');
 Route::get('oauth/google/callback', 'OAuth\GoogleController@callback');
 
