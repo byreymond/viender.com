@@ -74,6 +74,7 @@ axios.defaults.withCredentials = true;
  */
 
 window.me = JSON.parse(Vue.cookie.get('me'));
+window.scrollPos = 0;
 if(window.me) {
 	window.me.name = window.me.first_name + ' ' + window.me.last_name;
 }

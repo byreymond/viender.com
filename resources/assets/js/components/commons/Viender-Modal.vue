@@ -71,12 +71,13 @@
                 })
             },
 
-            show() {
+            show(disableScrolling = true) {
                 var vm = this;
 
                 vm.$emit('show');
 
-                vm.body_.disableScrolling();
+                if(disableScrolling)
+                    vm.body_.disableScrolling();
 
                 vm.showMe = true;
 
@@ -85,12 +86,13 @@
                 $(vm.$refs.overlay).css('z-index', vm.zIndex - 1);
             },
 
-            hide() {
+            hide(enableScrolling = true) {
                 var vm = this;
 
                 vm.$emit('hide');
 
-                vm.body_.enableScrolling();
+                if(enableScrolling)
+                    vm.body_.enableScrolling();
 
                 vm.showMe = false;
 

@@ -1,17 +1,19 @@
 window.canControlBodyElementMixin = {
+	created() {
+		canControlBodyElementMixin._scrollPos = 0;
+	},
+
     data() {
         return {
             body_: {
-            	scrollPos: 0,
-
     	        disableScrolling() {
-		            window.scrollPos = $('body').scrollTop();
+		            canControlBodyElementMixin._scrollPos = $('body').scrollTop();
 
 		            $('body').css({
 		                overflow: 'hidden',
 		                position: 'fixed',
 		                width: '100%',
-		                top : -window.scrollPos
+		                top : -canControlBodyElementMixin._scrollPos
 		            });
 		        },
 
@@ -20,7 +22,7 @@ window.canControlBodyElementMixin = {
 		                overflow: '',
 		                position: '',
 		                top: ''
-		            }).scrollTop(window.scrollPos);
+		            }).scrollTop(canControlBodyElementMixin._scrollPos);
 		        }
             }
         }
