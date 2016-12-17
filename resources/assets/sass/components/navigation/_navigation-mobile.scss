@@ -1,5 +1,12 @@
+#sidenav-overlay {
+    position: fixed;
+    z-index: 9800;
+}
+
 .side-nav {
-    /*width: 270px;*/
+    position: fixed;
+    z-index: 9900;
+    padding-left: 0;
 }
 
 .side-nav .sn-ad-avatar-wrapper p {
