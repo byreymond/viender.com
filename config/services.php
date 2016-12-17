@@ -39,6 +39,8 @@ return [
         'client_id' => env('VIENDER_ID'),
         'client_secret' => env('VIENDER_SECRET'),
         'url' => env('VIENDER_URL'),
+        'access_token_cookie_name' => env('VIENDER_ACCESS_TOKEN_COOKIE_NAME'),
+        'refresh_token_cookie_name' => env('VIENDER_REFRESH_TOKEN_COOKIE_NAME'),
     ],
 
     'google' => [

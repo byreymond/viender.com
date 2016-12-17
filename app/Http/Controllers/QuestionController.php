@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth.secret')->except('welcome');
+    }
+
     /**
      * Display the specified resource.
      *
