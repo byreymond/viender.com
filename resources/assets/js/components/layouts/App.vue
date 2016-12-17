@@ -32,7 +32,7 @@
 
         methods: {
             hideHintModal() {
-                this.$refs.hintModal.hide();
+                this.$refs.hintModal.hide(false);
             }
         }
     }
