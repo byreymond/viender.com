@@ -16,7 +16,7 @@
                 
                 <!-- Answerer Bio -->
                 <div class="author-bio col-sm-10">
-                    <p class=""><strong>{{ answer.owner.name }}</strong>, Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p class=""><strong><a class="profile-link" :href="url('profile/' + answer.owner.login)">{{ answer.owner.name }}</a></strong>, Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
             </div>
         </div>
@@ -107,7 +107,18 @@
         methods: {
             showMore() {
                 this.showMoreClicked = true;
-            }
+            },
+
+            url: url,
+
+            api: api,
         }
     }
 </script>
+
+<style>
+    .profile-link, .profile-link a:focus, .profile-link a:hover {
+        color: black;
+        text-decoration: none;
+    }
+</style>

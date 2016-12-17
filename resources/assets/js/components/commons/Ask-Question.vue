@@ -2,7 +2,7 @@
 <div class="answer-box">
 	<div class="card card-block">
 		<div class="card-content">
-			<a href="#" @click="emitCreateQuestionClick()">
+			<a @click="emitCreateQuestionClick()">
 				<i class="fa fa-comment-o" aria-hidden="true" style="font-size: 2rem;"></i>
 	 			What is your question?
  			</a>

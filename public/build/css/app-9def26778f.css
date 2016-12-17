@@ -17619,8 +17619,14 @@ header,
   margin-left: 0;
   margin-right: 0; }
 
+#sidenav-overlay {
+  position: fixed;
+  z-index: 9800; }
+
 .side-nav {
-  /*width: 270px;*/ }
+  position: fixed;
+  z-index: 9900;
+  padding-left: 0; }
 
 .side-nav .sn-ad-avatar-wrapper p {
   padding-top: 80px;
@@ -17850,14 +17856,6 @@ div.content-container {
 .navbar {
   position: fixed;
   z-index: 9700; }
-
-#sidenav-overlay {
-  position: fixed;
-  z-index: 9800; }
-
-.side-nav {
-  position: fixed;
-  z-index: 9900; }
 
 main {
   margin-top: 69px; }
