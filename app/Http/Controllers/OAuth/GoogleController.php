@@ -12,12 +12,20 @@ class GoogleController extends Controller
 {
     protected $header;
 
+    protected $accessTokenCookieName;
+
+    protected $refreshTokenCookieName;
+
     public function __construct() {
         $this->header = [
             'Origin'            => config('app.url'),
             'Content-Type'      => 'application/json',
             'Accept'            => 'application/json'
         ];
+
+        $this->accessTokenCookieName = config('services.viender.access_token_cookie_name');
+
+        $this->refreshTokenCookieName = config('services.viender.refresh_token_cookie_name');        
     }
 
     /**
@@ -58,8 +66,8 @@ class GoogleController extends Controller
             return response($error, 403);
         }
         $response = redirect(url('/'));
-        $response->cookie('pt', $userData['token_type'] . ' ' . $userData['access_token'], $userData['expires_in']/60, null, config('app.domain'));
-        $response->cookie('ptr', $userData['refresh_token'], 60*24*360, null, config('app.domain'));
+        $response->cookie($this->accessTokenCookieName, $userData['token_type'] . ' ' . $userData['access_token'], $userData['expires_in']/60, null, config('app.domain'));
+        $response->cookie($this->refreshTokenCookieName, $userData['refresh_token'], 60*24*360, null, config('app.domain'));
         $response->cookie('me', json_encode(array_splice($userData, 0, 10)), 60*24*360, null, config('app.domain'), false, false);
         return $response;
     }

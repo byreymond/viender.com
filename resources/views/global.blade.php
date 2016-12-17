@@ -8,7 +8,9 @@ var config = {
     },
     services: {
         viender: {
-            url: '{{ config('services.viender')['url'] }}',
+            url: '{{ config('services.viender.url') }}',
+            access_token_cookie_name: '{{ config('services.viender.access_token_cookie_name') }}',
+            refresh_token_cookie_name: '{{ config('services.viender.refresh_token_cookie_name') }}',
         }
     }
 };
