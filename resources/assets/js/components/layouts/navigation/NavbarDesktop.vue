@@ -4,7 +4,7 @@
         <div class="col-md-8">
             <div class="col-md-1">
                 <!--Navbar Brand-->
-                <a class="navbar-brand" href="#">Viender</a>
+                <a class="navbar-brand" :href="url('/')">Viender</a>
             </div>
             <div class="col-md-6">
                 <!--Search Form-->
@@ -43,6 +43,10 @@
     export default {
         template: "#navigation-template",
 
-        mixins: [authMixin]
+        mixins: [authMixin],
+
+        methods: {
+            url: url,
+        }
     }
 </script>
