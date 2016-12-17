@@ -44,7 +44,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        if ($exception instanceof \GuzzleHttp\Exception\RequestException) {
+            return redirect(url('/welcome'));
+            
+            return response()->json(["error" => $exception->getResponse()->getReasonPhrase(), "message" => $exception->getResponse()->getBody()->read(120)], $exception->getResponse()->getStatusCode());
+        }
+        
+        return parent::render($request, $exception->getResponse()->statusCode);
     }
 
     /**
