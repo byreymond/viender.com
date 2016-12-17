@@ -1,5 +1,7 @@
+import unAuthorizedHandlerMixin from './unAuthorizedHandlerMixin';
+
 window.upvotableMixin = {
-    mixins: [hasLinksMixin],
+    mixins: [hasLinksMixin, unAuthorizedHandlerMixin],
 
     data() {
         return {
@@ -30,6 +32,10 @@ window.upvotableMixin = {
                 vm._requesting = false;
             })
             .catch(function (error) {
+                console.log(vm);
+                vm.handleUnAuthorized(function() {
+                    vm.upvote(obj);
+                });
                 vm._requesting = false;
             });
         }
