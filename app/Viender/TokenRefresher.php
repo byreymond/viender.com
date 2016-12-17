@@ -13,6 +13,8 @@ class TokenRefresher {
 
     protected $secret = null;
 
+    protected $http;
+
     public function __construct() {
         $this->header = [
             'Origin'            => config('app.url'),
@@ -23,18 +25,20 @@ class TokenRefresher {
         $this->accessTokenCookieName = config('services.viender.access_token_cookie_name');
 
         $this->refreshTokenCookieName = config('services.viender.refresh_token_cookie_name');
+
+        $this->http = new \GuzzleHttp\Client(['base_uri' => config('services.viender.url')]);
+
+        if(config('app.env') == 'local') {
+            $this->http = new \GuzzleHttp\Client(['base_uri' => config('services.viender.url'), 'verify' => false]);
+        }
     }
 
     public function getNewToken(Request $request)
     {
         if( $refreshToken = $request->cookie($this->refreshTokenCookieName)) {
-            $http = new \GuzzleHttp\Client(['base_uri' => config('services.viender.url')]);
 
-            if(config('app.env') == 'local') {
-                $http = new \GuzzleHttp\Client(['base_uri' => config('services.viender.url'), 'verify' => false]);
-            }
 
-            $response = $http->post('/oauth/token', [
+            $response = $this->http->post('/oauth/token', [
                 'headers' => $this->header,
                 'json' => [
                     'grant_type'        => 'refresh_token',
@@ -59,4 +63,12 @@ class TokenRefresher {
 
         return $response;
     }
+
+    public function forgetTokenCookie(&$response)
+    {
+        $response->cookie($this->accessTokenCookieName, '', -1, null, config('app.domain'));
+        $response->cookie($this->refreshTokenCookieName, '', -1, null, config('app.domain'));
+
+        return $response;
+    }    
 }

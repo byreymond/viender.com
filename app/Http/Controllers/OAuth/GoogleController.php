@@ -67,7 +67,7 @@ class GoogleController extends Controller
         }
         $response = redirect(url('/'));
         $response->cookie($this->accessTokenCookieName, $userData['token_type'] . ' ' . $userData['access_token'], $userData['expires_in']/60, null, config('app.domain'));
-        $response->cookie($this->refreshTokenCookieName, $userData['refresh_token'], 60*24*360, null, config('app.domain'));
+        $response->cookie($this->refreshTokenCookieName, $userData['refresh_token'], 60*24*30, null, config('app.domain'));
         $response->cookie('me', json_encode(array_splice($userData, 0, 10)), 60*24*360, null, config('app.domain'), false, false);
         return $response;
     }
