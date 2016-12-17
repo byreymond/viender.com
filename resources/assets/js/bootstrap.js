@@ -57,7 +57,7 @@ Vue.http.interceptors.push((request, next) => {
 window.VueCookie = require('vue-cookie');
 window.axios = require('axios');
 window.autosize = require('autosize');
-require('summernote');
+require('readmore-js');
 require('./helpers.js');
 // if( ! window.Promise) {
 // 	window.Promise = require('es6-promise').Promise;

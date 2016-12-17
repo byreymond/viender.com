@@ -25,7 +25,6 @@
     export default {
         template: "#navigation-template",
 
-        mixins: [authMixin]
+        mixins: [authMixin],
     }
-
 </script>
