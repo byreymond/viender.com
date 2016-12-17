@@ -12,12 +12,13 @@
             <slot name="footer"></slot>
         </div>
 
-        <viender-modal trigger="askForm.click" @show="hideHintOverlay()"></viender-modal>
-        <overlay id="hintOverlay" trigger="whatsyourquestion.click" color="white">
+        <viender-modal trigger="askForm.click" @show="hideHintModal()"></viender-modal>
+
+        <viender-modal ref="hintModal" trigger="whatsyourquestion.click" overlay-color="white">
             <div class="content-container">
                 Write your question up here ^
             </div>
-        </overlay>
+        </viender-modal>
     </div>
 </template>
 
@@ -25,9 +26,13 @@
     export default {
         template: "#app-template",
 
+        mounted() {
+            console.log(this);
+        },
+
         methods: {
-            hideHintOverlay() {
-                $('#hintOverlay').css('display', 'none');
+            hideHintModal() {
+                this.$refs.hintModal.hide();
             }
         }
     }

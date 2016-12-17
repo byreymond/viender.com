@@ -1,28 +1,30 @@
 window.canControlBodyElementMixin = {
     data() {
         return {
-            scrollPos: 0,
-
             body_: {
-    	        disableScrolling() {
-		            var vm = this;
+            	scrollPos: 0,
 
-		            vm.scrollPos = $('body').scrollTop();
+    	        disableScrolling() {
+    	        	var me = this;
+
+		            me.scrollPos = $('body').scrollTop();
 
 		            $('body').css({
 		                overflow: 'hidden',
 		                position: 'fixed',
 		                width: '100%',
-		                top : -vm.scrollPos
+		                top : -me.scrollPos
 		            });
 		        },
 
 		        enableScrolling() {
+    	        	var me = this;
+
 		            $('body').css({
 		                overflow: '',
 		                position: '',
 		                top: ''
-		            }).scrollTop(this.scrollPos);
+		            }).scrollTop(me.scrollPos);
 		        }
             }
         }

@@ -1,10 +1,16 @@
 <template  id="viender-modal-template">
-    <div class="viender-modal">
-        <div class="modal-container">
-            <slot></slot>
+    <transition :name="transition">
+        <div class="viender-modal" v-show="showMe">
+            <div ref="container" class="modal-container">
+                <slot></slot>
+            </div>
+
+            <!-- <overlay :trigger="trigger" :color="overlayColor" :z-index="zIndex" @hide="hide()"></overlay> -->
+
+            <div ref="overlay" class="main-overlay" @click="hide()">
+            </div>
         </div>
-        <overlay :trigger="trigger" :color="overlayColor" :z-index="zIndex" @close="closeModal()"></overlay>
-    </div>
+    </transition>
 </template>
 
 <script>
@@ -22,19 +28,38 @@
                 type: String,
                 default: 'black'
             },
+            transition: {
+                type: String,
+                default: "fade"
+            },
         },
 
         data() {
             return {
-                zIndex: 9000
+                zIndex: 9000,
+                showMe: false,
             }
         },
 
         mounted() {
+            var vm = this;
+
             if( ! window.vienderModalHighestZIndex) {
                 window.vienderModalHighestZIndex = 9000;
             }
+
             this.callbacks();
+
+            $(vm.$refs.container).css({
+                'position': 'fixed',
+                'width': '100%',
+                'z-index': vm.zIndex,
+            });
+                      
+            $(vm.$refs.overlay).css({
+                'background-color': vm.overlayColor,
+                'z-index': vm.zIndex-1,
+            });
         },
 
         methods: {
@@ -42,46 +67,60 @@
                 var vm = this;
 
                 bus.$on(vm.trigger, function() {
-                    vm.showModal();
+                    vm.show();
                 })
             },
 
-            showModal() {
+            show() {
                 var vm = this;
 
-                $(vm.$el).find('.main-overlay').css('zIndex', ++window.vienderModalHighestZIndex);
+                vm.$emit('show');
 
-                $(vm.$el).find('.modal-container').css('zIndex', vm.zIndex + 1000);
+                vm.body_.disableScrolling();
 
-                $(vm.$el).css('display', 'block');
+                vm.showMe = true;
 
-                this.$emit('show');
+                $(vm.$refs.overlay).css('z-index', ++window.vienderModalHighestZIndex);
+
+                $(vm.$refs.overlay).css('z-index', vm.zIndex - 1);
             },
 
-            closeModal() {
+            hide() {
                 var vm = this;
 
-                $(vm.$el).find('.main-overlay').css('zIndex', --window.vienderModalHighestZIndex);
+                vm.$emit('hide');
+
+                vm.body_.enableScrolling();
+
+                vm.showMe = false;
+
+                $(vm.$refs.overlay).css('z-index', --window.vienderModalHighestZIndex);
                 
-                $(vm.$el).find('.modal-container').css('zIndex', vm.zIndex + 1000);
-
-                $(vm.$el).css('display', '');
-
-                this.$emit('close');
+                $(vm.$refs.overlay).css('z-index', vm.zIndex - 1);
             }
         }
     }
 </script>
 
 <style>
-    .modal-container {
+    .viender-modal {
         position: fixed;
         z-index: 10000;
         top: 30px;
         width: 100%;
     }
 
-    .viender-modal {
-        display: none;
-    }    
+    .main-overlay {
+        position: fixed;
+        top: 31px;
+        width: 100%;
+        height: 100%;
+        opacity: 0.9;
+    }
+
+    @media screen and (min-width: 992px) {
+        .main-overlay {
+            top: 37px;
+        }
+    }
 </style>

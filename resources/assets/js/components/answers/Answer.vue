@@ -35,10 +35,12 @@
         </div>
     </div>
     
-    <div v-show="show">
-        <comment-form :text="commentTextArea" @postAnswerClicked="postComment(answer)"></comment-form>
-        <comment-list :comments="comments"></comment-list>
-    </div>
+    <transition name="fade">
+        <div v-show="show">
+            <comment-form :text="commentTextArea" @postAnswerClicked="postComment(answer)"></comment-form>
+            <comment-list :comments="comments"></comment-list>
+        </div>
+    </transition>
 </div>
 
 

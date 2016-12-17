@@ -1,5 +1,5 @@
 <template  id="overlay-template">
-    <div class="main-overlay" @click="closeOverlay()" transition="fade">
+    <div class="main-overlay" @click="closeOverlay()" v-show="showMe">
         <slot></slot>
     </div>
 </template>
@@ -25,6 +25,12 @@
             },
         },
 
+        data() {
+            return {
+                showMe: false,
+            }
+        },
+
         mounted() {
             var vm = this;
             vm.callbacks();
@@ -44,22 +50,21 @@
             showOverlay() {
                 var vm = this;
 
-                $(vm.$el).css('display', 'block');
+                vm.$emit('show');
+
+                vm.showMe = true;
 
                 vm.body_.disableScrolling();
-
-                this.$emit('show');
             },
 
             closeOverlay() {
                 var vm = this;
 
-                $(vm.$el).css('display', '');
+                vm.$emit('close');
+                
+                vm.showMe = false;
 
                 vm.body_.enableScrolling();
-
-                this.$emit('close');
-
             },
         }
     }
@@ -72,7 +77,6 @@
         top: 31px;
         width: 100%;
         height: 100%;
-        display: none;
         opacity: 0.9;
     }
 

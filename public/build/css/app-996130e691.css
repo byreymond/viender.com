@@ -17883,4 +17883,15 @@ ul {
   main {
     margin-top: 37px; } }
 
+.fade-enter-active, .fade-leave-active {
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s; }
+
+.fade-enter, .fade-leave-active {
+  opacity: 0; }
+
+/* Overlay fade transition fix */
+.waves-effect {
+  z-index: 0; }
+
 /*# sourceMappingURL=app.css.map */
