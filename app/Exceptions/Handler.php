@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
             return response()->json(["error" => $exception->getResponse()->getReasonPhrase(), "message" => $exception->getResponse()->getBody()->read(120)], $exception->getResponse()->getStatusCode());
         }
         
-        return parent::render($request, $exception->getResponse()->statusCode);
+        return parent::render($request, $exception);
     }
 
     /**
