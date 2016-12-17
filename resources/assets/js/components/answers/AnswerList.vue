@@ -37,7 +37,7 @@
             }
         },
 
-        created() {
+        mounted() {
             var vm = this;
             this.fetchAnswers();
             bus.$on('answerPostSuccess', function(answer) {

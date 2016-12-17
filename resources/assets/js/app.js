@@ -32,6 +32,9 @@ Vue.component('comment-list', require('./components/comments/CommentList.vue'));
 Vue.component('autosize-textarea', require('./components/commons/Autosize-Textarea.vue'));
 Vue.component('upvote-button', require('./components/commons/buttons/UpvoteButton.vue'));
 Vue.component('viender-text-editor', require('./components/commons/Viender-Text-Editor.vue'));
+Vue.component('ask-question', require('./components/commons/Ask-Question.vue'));
+Vue.component('overlay', require('./components/commons/Overlay.vue'));
+Vue.component('viender-modal', require('./components/commons/Viender-Modal.vue'));
 
 // layouts
 Vue.component('app', require('./components/layouts/App.vue'));

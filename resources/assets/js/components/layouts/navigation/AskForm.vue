@@ -1,5 +1,5 @@
 <template  id="AskForm-template">
-    <form class="form-inline float-xs-right" style="width: 100%;">
+    <form class="form-inline float-xs-right" style="width: 100%;" @click="emitAskFormClick()">
         <input class="form-control searchInput" type="text" placeholder="Ask Viender..." v-model="searchValue">
         <a class="searchButton" @click="submitSearch($event)"><i class="fa fa-search" aria-hidden="true"></i>
         </a>
@@ -11,7 +11,7 @@
     export default {
         template: "#AskForm-template",
 
-        mixins: [hasLinksMixin],
+        mixins: [hasLinksMixin, canControlBodyElementMixin],
 
         data() {
         	return {
@@ -46,7 +46,12 @@
                         alert('The question already exists');
                     }
                 });
-           	}
+           	},
+
+            // Still using bus instance, need a better implementation in the future.
+            emitAskFormClick() {
+                bus.$emit('askForm.click');
+            },         
         }
     }
 </script>
@@ -65,5 +70,5 @@
         display: inline-block;
         padding-top: 4px;
         color: white !important;
-    }
+    }    
 </style>
