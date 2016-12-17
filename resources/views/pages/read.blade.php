@@ -1,5 +1,5 @@
-@extends('layouts.app')
+@extends("layouts.app")
 
-@section('content')
-    <read-page></read-page>
+@section("content")
+    <read-page :feeds="{{ $feeds }}"></read-page>
 @endsection
