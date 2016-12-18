@@ -1,4 +1,5 @@
 /public
+/resources/assets/js/build
 /node_modules
 /public/storage
 /storage/*.key
