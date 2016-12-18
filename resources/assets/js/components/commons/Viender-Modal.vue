@@ -38,6 +38,7 @@
             return {
                 zIndex: 9000,
                 showMe: false,
+                active: false,
             }
         },
 
@@ -67,7 +68,8 @@
                 var vm = this;
 
                 bus.$on(vm.trigger, function() {
-                    vm.show();
+                    if( ! vm.active)
+                        vm.show();
                 })
             },
 
@@ -75,6 +77,8 @@
                 var vm = this;
 
                 vm.$emit('show');
+
+                vm.active = true;
 
                 if(disableScrolling)
                     vm.body_.disableScrolling();
@@ -90,6 +94,8 @@
                 var vm = this;
 
                 vm.$emit('hide');
+
+                vm.active = false;
 
                 if(enableScrolling)
                     vm.body_.enableScrolling();
