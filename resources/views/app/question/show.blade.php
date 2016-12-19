@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <app class="read-page">
-        <navigation slot="header"></navigation>
-        <question-show :question="JSON.parse('{{ $question }}')"></question-show>
-    </app>
+    <question-show-page :question="{{ $question }}" :answers="{{ $answers }}"></question-show-page>
 @endsection

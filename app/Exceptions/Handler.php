@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;
@@ -46,10 +46,12 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof \GuzzleHttp\Exception\RequestException) {
             return redirect(url('/welcome'));
-            
-            return response()->json(["error" => $exception->getResponse()->getReasonPhrase(), "message" => $exception->getResponse()->getBody()->read(120)], $exception->getResponse()->getStatusCode());
         }
-        
+
+        if ($exception insta nceof \Laravel\Socialite\Two\InvalidStateException) {
+            // return redirect(url('/'));
+        }
+
         return parent::render($request, $exception);
     }
 

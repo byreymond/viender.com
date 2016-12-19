@@ -50,6 +50,7 @@ Vue.component('auction-page', require('./components/pages/AuctionPage.vue'));
 Vue.component('welcome-page', require('./components/pages/WelcomePage.vue'));
 Vue.component('read-page', require('./components/pages/ReadPage.vue'));
 Vue.component('profile-page', require('./components/pages/ProfilePage.vue'));
+Vue.component('question-show-page', require('./components/pages/QuestionShowPage.vue'));
 
 // questions
 Vue.component('question', require('./components/questions/Question.vue'));
