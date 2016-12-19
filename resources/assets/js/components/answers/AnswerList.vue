@@ -25,6 +25,10 @@
               type: Boolean,
               default: true
             },
+            startPage: {
+              type: Number,
+              default: 2
+            },
         },
 
         data() {
@@ -36,7 +40,7 @@
                 answersPathParams: {
                     params: {
                         with: "owner,question",
-                        page: 2
+                        page: 1
                     }
                 },
 
@@ -47,6 +51,7 @@
         mounted() {
             var vm = this;
             // this.fetchAnswers();
+            vm.answersPathParams.params.page = vm.startPage;
             vm.answerList = vm.answers;
             bus.$on('answerPostSuccess', function(answer) {
                 vm.answers.data.unshift(answer);
