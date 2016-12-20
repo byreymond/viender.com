@@ -1,6 +1,5 @@
-/public
-/resources/assets/js/build
 /node_modules
+/resources/assets/js/build
 /public/storage
 /storage/*.key
 /vendor
