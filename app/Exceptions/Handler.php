@@ -48,8 +48,8 @@ class Handler extends ExceptionHandler
             return redirect(url('/welcome'));
         }
 
-        if ($exception insta nceof \Laravel\Socialite\Two\InvalidStateException) {
-            // return redirect(url('/'));
+        if ($exception instanceof \Laravel\Socialite\Two\InvalidStateException) {
+            return redirect(url('/oauth/google'));
         }
 
         return parent::render($request, $exception);
